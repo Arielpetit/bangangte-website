@@ -1,0 +1,99 @@
+{
+ "danse1": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/danse1-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/danse1-1280.jpg"
+ },
+ "aerial": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/aerial-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/aerial-1280.jpg"
+ },
+ "sculpture": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/sculpture-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/sculpture-1280.jpg"
+ },
+ "roi_bangoulap": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/roi_bangoulap-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/roi_bangoulap-1280.jpg"
+ },
+ "marche2": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/marche2.webp",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/marche2.webp"
+ },
+ "haricots": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/haricots-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/haricots-1280.jpg"
+ },
+ "hdv": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/hdv.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/hdv.jpg"
+ },
+ "__logo": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/logo.png",
+ "babou": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/babou-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/babou-1280.jpg"
+ },
+ "bazou": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/bazou-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/bazou-1280.jpg"
+ },
+ "bazou_chef": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/bazou_chef-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/bazou_chef-1280.jpg"
+ },
+ "bazou_musee": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/bazou_musee-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/bazou_musee-1280.jpg"
+ },
+ "danse2": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/danse2-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/danse2-1280.jpg"
+ },
+ "dynastie": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/dynastie-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/dynastie-1280.jpg"
+ },
+ "femme1": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/femme1-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/femme1-1280.jpg"
+ },
+ "femme2": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/femme2-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/femme2-1280.jpg"
+ },
+ "femme3": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/femme3-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/femme3-1280.jpg"
+ },
+ "femme4": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/femme4-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/femme4-1280.jpg"
+ },
+ "mandjong": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/mandjong-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/mandjong-1280.jpg"
+ },
+ "niat": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/niat-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/niat-1280.jpg"
+ },
+ "ouest": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/ouest-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/ouest-1280.jpg"
+ },
+ "roi": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/roi-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/roi-1280.jpg"
+ },
+ "roi2": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/roi2-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/roi2-1280.jpg"
+ },
+ "stade": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/stade-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/stade-1280.jpg"
+ },
+ "udm5": {
+  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/udm5-500.jpg",
+  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/udm5-1280.jpg"
+ }
+}

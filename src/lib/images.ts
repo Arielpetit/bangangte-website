@@ -1,4 +1,8 @@
 // Photos sous licence libre (Wikimedia Commons) et photos locales du dossier public/images.
+// Copies hébergées dans Supabase Storage (bucket « media », dossier site/) : voir scripts/upload-site-images.mjs.
+import hostedJson from "@/content/site-images.json";
+
+const HOSTED = hostedJson as Record<string, Partial<Record<"500" | "1280", string>> | string>;
 
 export type ImageInfo = {
   path: string; // chemin Commons, ou chemin local commençant par "/"
@@ -77,6 +81,8 @@ export const IMG = {
   jeunesse_defile: { path: "b/b0/C%C3%A9l%C3%A9bration_de_la_F%C3%AAte_Nationale_de_la_Jeunesse_2025_%C3%A0_Bonab%C3%A9ri_le_11_f%C3%A9vrier_%28Douala_IVe%29_06.jpg", width: 2048, author: "Tchoumegni", license: "CC BY-SA 4.0", fr: "Écoliers au défilé de la Fête de la jeunesse, Douala, 11 février 2025", en: "Schoolchildren at the Youth Day parade, Douala, 11 February 2025" },
   defile_eleves: { path: "e/e0/El%C3%A8ves_au_d%C3%A9fil%C3%A92.jpg", width: 4500, author: "Happiraphael", license: "CC BY-SA 4.0", fr: "Élèves et étudiants au défilé de la fête nationale, Douala, 20 mai 2019", en: "Pupils and students at the National Day parade, Douala, 20 May 2019" },
   hdv: { path: "/images/local/hotel-de-ville.jpg", width: 898, author: "Commune de Bangangté", license: "droits réservés", fr: "L'hôtel de ville de Bangangté", en: "Bangangté town hall" },
+  jeudi: { path: "/images/local/jeudi-propre.jpg", width: 1080, author: "Commune de Bangangté", license: "droits réservés", fr: "Jeudi propre : les habitants nettoient leur quartier avec la mairie", en: "Clean Thursday: residents clean up their neighbourhood with the town hall" },
+  jeudi2: { path: "/images/local/jeudi-propre-2.jpg", width: 1080, author: "Commune de Bangangté", license: "droits réservés", fr: "Habitants mobilisés pour le Jeudi propre", en: "Residents turned out for Clean Thursday" },
 } satisfies Record<string, ImageInfo>;
 
 export type ImgKey = keyof typeof IMG;
@@ -84,6 +90,12 @@ export type ImgKey = keyof typeof IMG;
 const WIDTHS = [250, 330, 500, 960, 1280, 1920];
 
 export function src(key: ImgKey, w = 960): string {
+  // Copie dans le bucket Supabase si elle existe (500 px pour les vignettes, 1280 px au-delà).
+  const h = HOSTED[key];
+  if (h && typeof h === "object") {
+    const u = w <= 500 ? h["500"] ?? h["1280"] : h["1280"] ?? h["500"];
+    if (u) return u;
+  }
   const { path, width } = IMG[key] as ImageInfo;
   if (path.startsWith("/")) return path;
   if (width <= w) return `https://upload.wikimedia.org/wikipedia/commons/${path}`;

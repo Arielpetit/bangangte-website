@@ -7,19 +7,33 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "cf:build": "next build",
-    "cf:preview": "wrangler dev --local",
-    "cf:deploy": "next build && wrangler deploy"
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "db:seed": "node --env-file=.env.local scripts/seed.mjs",
+    "db:images": "node --env-file=.env.local scripts/upload-site-images.mjs"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.20.17",
+    "@supabase/supabase-js": "^2.119.0",
+    "@tiptap/extension-image": "^3.34.0",
+    "@tiptap/extension-link": "^3.34.0",
+    "@tiptap/extension-placeholder": "^3.34.0",
+    "@tiptap/pm": "^3.34.0",
+    "@tiptap/react": "^3.34.0",
+    "@tiptap/starter-kit": "^3.34.0",
+    "browser-image-compression": "^2.0.2",
     "next": "16.4.5",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "sanitize-html": "^2.18.2",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sanitize-html": "^2.16.2",
     "eslint": "^9",
     "eslint-config-next": "16.4.5",
     "typescript": "^5",

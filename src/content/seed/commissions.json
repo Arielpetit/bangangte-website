@@ -1,0 +1,34 @@
+[
+ {
+  "name_fr": "Commission des finances",
+  "name_en": "Finance committee",
+  "chair_id": "magloire-tchatchoua-nya",
+  "description_fr": "Budget, comptes administratifs et suivi de l'exécution financière.",
+  "description_en": "Budget, annual accounts and financial monitoring.",
+  "rank": 1
+ },
+ {
+  "name_fr": "Commission de l'action sociale",
+  "name_en": "Social action committee",
+  "chair_id": null,
+  "description_fr": "Aides et secours, personnes vulnérables, santé et éducation.",
+  "description_en": "Social assistance, vulnerable people, health and education.",
+  "rank": 2
+ },
+ {
+  "name_fr": "Commission pour le renforcement de l'offre des services sociaux de base",
+  "name_en": "Basic social services committee",
+  "chair_id": null,
+  "description_fr": "Eau, éclairage, écoles et équipements de proximité.",
+  "description_en": "Water, lighting, schools and local facilities.",
+  "rank": 3
+ },
+ {
+  "name_fr": "Commission de la coopération et des partenariats",
+  "name_en": "Cooperation and partnerships committee",
+  "chair_id": null,
+  "description_fr": "Coopération décentralisée (Berlin-Charlottenburg, Luxembourg), partenaires techniques et financiers.",
+  "description_en": "Decentralised cooperation (Berlin-Charlottenburg, Luxembourg), technical and financial partners.",
+  "rank": 4
+ }
+]

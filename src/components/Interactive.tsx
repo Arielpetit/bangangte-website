@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IMG, src, type ImgKey } from "@/lib/images";
 import { currentLang } from "./Site";
 import { Icon, T } from "./ui";
@@ -79,48 +79,5 @@ export function Gallery({ items }: { items: ImgKey[] }) {
         <p>{IMG[k][lang]}</p>
       </dialog>
     </>
-  );
-}
-
-/** Formulaire de contact. TODO : relier à l'adresse e-mail ou au service de formulaires de la mairie. */
-export function ContactForm() {
-  const [status, setStatus] = useState<{ ok: boolean; fr: string; en: string } | null>(null);
-  const submit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    if (!form.checkValidity()) {
-      setStatus({ ok: false, fr: "Renseignez votre nom, un e-mail valide et votre message.", en: "Enter your name, a valid email and your message." });
-      form.reportValidity();
-      return;
-    }
-    setStatus({ ok: true, fr: "Message envoyé. L'équipe de la mairie vous répondra par e-mail.", en: "Message sent. The town hall team will reply by email." });
-    form.reset();
-  };
-  return (
-    <form className="form" noValidate onSubmit={submit}>
-      <div className="row">
-        <label><T fr="Nom complet" en="Full name" /><input type="text" name="nom" autoComplete="name" required /></label>
-        <label><T fr="E-mail" en="Email" /><input type="email" name="email" autoComplete="email" required /></label>
-      </div>
-      <div className="row">
-        <label><T fr="Téléphone (facultatif)" en="Phone (optional)" /><input type="tel" name="tel" autoComplete="tel" /></label>
-        <label><T fr="Objet" en="Subject" />
-          <select name="objet" defaultValue="Question générale">
-            <option data-en="General question">Question générale</option>
-            <option data-en="Administrative formality">Démarche administrative</option>
-            <option data-en="Report a problem">Signaler un problème</option>
-            <option data-en="Submit an event">Proposer un événement</option>
-            <option data-en="Suggest a notable person">Proposer une personnalité</option>
-            <option data-en="List a business">Référencer un établissement</option>
-            <option data-en="Investment or diaspora">Investissement ou diaspora</option>
-          </select>
-        </label>
-      </div>
-      <label><T fr="Message" en="Message" /><textarea name="message" required /></label>
-      <div><button className="btn btn-solid" type="submit"><T fr="Envoyer le message" en="Send message" /><Icon name="arrow" /></button></div>
-      <p className={`form-status${status && !status.ok ? " err" : ""}`} role="status" aria-live="polite">
-        {status && <T fr={status.fr} en={status.en} />}
-      </p>
-    </form>
   );
 }

@@ -17,10 +17,6 @@ function syncLang() {
     if (im.dataset.frAlt === undefined) im.dataset.frAlt = im.alt;
     im.alt = l === "en" ? im.dataset.enAlt ?? im.alt : im.dataset.frAlt;
   });
-  document.querySelectorAll<HTMLOptionElement>("option[data-en]").forEach((o) => {
-    if (o.dataset.fr === undefined) o.dataset.fr = o.textContent ?? "";
-    o.textContent = l === "en" ? o.dataset.en ?? "" : o.dataset.fr;
-  });
   const t = document.querySelector<HTMLMetaElement>(`meta[name="title-${l}"]`);
   if (t) document.title = t.content;
 }
