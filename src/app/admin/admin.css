@@ -375,3 +375,8 @@ html[data-theme="dark"] .ad-langsw-pill { background: var(--gold); }
 html[data-theme="dark"] .ad-langsw button[aria-pressed="true"] { color: var(--indigo-deep); }
 .ad-auth-lang { display: flex; justify-content: flex-end; margin-bottom: .6rem; }
 @media (max-width: 560px) { .ad-hide-sm { display: none; } }
+
+/* Compteurs dans les filtres segmentés */
+.ad-count-pill { display: inline-grid; place-items: center; min-width: 1.45rem; height: 1.25rem; margin-left: .45rem; padding: 0 .4rem; border-radius: 999px; background: color-mix(in srgb, var(--muted) 16%, transparent); color: var(--muted); font: 700 .7rem/1 var(--font-body), system-ui; font-variant-numeric: tabular-nums; transition: background-color .25s, color .25s; }
+.ad-seg button.on .ad-count-pill { background: color-mix(in srgb, currentColor 18%, transparent); color: inherit; }
+.ad-count-pill.hot { background: var(--gold); color: var(--indigo-deep); }

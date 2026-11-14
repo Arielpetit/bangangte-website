@@ -34,7 +34,12 @@ function Inbox() {
     });
   }, [sb, toast, tick]);
 
-  const list = (rows ?? []).filter((m) => (kind === "all" || m.kind === kind) && (st === "all" || (st === "open" ? m.status !== "closed" : m.status === "closed")));
+  const kindOk = (m: Message, k: typeof kind) => k === "all" || m.kind === k;
+  const stOk = (m: Message, s: typeof st) => s === "all" || (s === "open" ? m.status !== "closed" : m.status === "closed");
+  const list = (rows ?? []).filter((m) => kindOk(m, kind) && stOk(m, st));
+  // Compteurs : chaque groupe de filtres compte dans la sélection de l'autre groupe.
+  const nKind = (k: typeof kind) => (rows ?? []).filter((m) => kindOk(m, k) && stOk(m, st)).length;
+  const nSt = (s: typeof st) => (rows ?? []).filter((m) => kindOk(m, kind) && stOk(m, s)).length;
   const cur = rows?.find((m) => m.id === sel) ?? null;
   const [lastSel, setLastSel] = useState<string | null>(null);
   if (cur && lastSel !== cur.id) { setLastSel(cur.id); setNotes(cur.notes ?? ""); }
@@ -58,8 +63,8 @@ function Inbox() {
     <div className="ad-page">
       <div className="ad-head"><div><h1>{t("Messages")}</h1><p className="ad-muted">{t("Messages du formulaire de contact et signalements des habitants.")}</p></div></div>
       <div className="ad-toolbar">
-        <div className="ad-seg">{([["all", "Tous"], ["contact", "Contact"], ["signalement", "Signalements"]] as const).map(([k, l]) => <button key={k} type="button" className={kind === k ? "on" : ""} onClick={() => setKind(k)}>{t(l)}</button>)}</div>
-        <div className="ad-seg">{([["open", "À traiter"], ["closed", "Traités"], ["all", "Tout"]] as const).map(([k, l]) => <button key={k} type="button" className={st === k ? "on" : ""} onClick={() => setSt(k)}>{t(l)}</button>)}</div>
+        <div className="ad-seg">{([["all", "Tous"], ["contact", "Contact"], ["signalement", "Signalements"]] as const).map(([k, l]) => <button key={k} type="button" className={kind === k ? "on" : ""} onClick={() => setKind(k)}>{t(l)}<span className="ad-count-pill">{nKind(k)}</span></button>)}</div>
+        <div className="ad-seg">{([["open", "À traiter"], ["closed", "Traités"], ["all", "Tout"]] as const).map(([k, l]) => <button key={k} type="button" className={st === k ? "on" : ""} onClick={() => setSt(k)}>{t(l)}<span className={`ad-count-pill${k === "open" && nSt("open") ? " hot" : ""}`}>{nSt(k)}</span></button>)}</div>
       </div>
       <div className={`ad-inbox${cur ? " has-sel" : ""}`}>
         <div className="ad-card ad-list ad-inbox-list">
