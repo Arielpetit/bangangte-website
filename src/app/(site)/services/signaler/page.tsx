@@ -23,7 +23,7 @@ export default function Signaler() {
         title={{ fr: "Signaler", en: "Report" }}
         lead={{ fr: "Vous avez constaté un problème dans votre quartier ? Prévenez la mairie : votre signalement est transmis au service compétent.", en: "Spotted a problem in your neighbourhood? Tell the council: your report goes to the department in charge." }}
         img="aerial2"
-        inset="marche2"
+        inset="rue"
       />
       <section className="sec">
         <div className="wrap contact-grid">

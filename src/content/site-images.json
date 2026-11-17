@@ -23,10 +23,6 @@
   "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/haricots-500.jpg",
   "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/haricots-1280.jpg"
  },
- "hdv": {
-  "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/hdv.jpg",
-  "1280": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/hdv.jpg"
- },
  "__logo": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/logo.png",
  "babou": {
   "500": "https://xkorowmflrfwkgfjdewg.supabase.co/storage/v1/object/public/media/site/babou-500.jpg",

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CommuniqueList } from "@/components/mairie";
+import { CommuniqueFeed } from "@/components/mairie";
 import { Icon, T } from "@/components/ui";
 import { getCommuniques, getSettings } from "@/lib/data/content";
 import { COMMUNIQUE_KINDS, type CommuniqueKind } from "@/lib/data/types";
@@ -32,7 +32,7 @@ export default async function Communiques({ searchParams }: { searchParams: Prom
               <Link key={k} href={`/communiques?type=${k}`} aria-current={kind === k ? "page" : undefined}><T fr={COMMUNIQUE_KINDS[k].fr} en={COMMUNIQUE_KINDS[k].en} /></Link>
             ))}
           </nav>
-          <CommuniqueList items={items} />
+          <CommuniqueFeed items={items} />
         </div>
       </section>
       <section className="sec sec-alt">

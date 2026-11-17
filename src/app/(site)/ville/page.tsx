@@ -24,6 +24,16 @@ const PROJECTS = [
   { icon: "leaf", t: { fr: "Agroécologie", en: "Agroecology" }, d: { fr: "Un centre de formation et un collectif de producteurs bio, avec un premier marché bio en août 2026.", en: "A training centre and an organic growers' group, with a first organic market in August 2026." } },
 ];
 
+// Source : ancien site de la commune, rubriques « Vie économique », « Vie sociale », « Le climat » et « Le potentiel de la Commune » (archives 2014-2022).
+const ECONOMY = [
+  { icon: "leaf", t: { fr: "Agriculture", en: "Farming" }, d: { fr: "Café arabica et robusta, cacao et palmier à huile, maïs, haricot, taro, macabo, igname, pomme de terre et maraîchage. 17 postes agricoles et environ 80 groupements de producteurs (GIC) encadrent les cultivateurs.", en: "Arabica and robusta coffee, cocoa and oil palm, maize, beans, taro, cocoyam, yam, potatoes and market gardening. 17 farm extension posts and about 80 producer groups (GIC) support farmers." } },
+  { icon: "store", t: { fr: "Marchés vivriers", en: "Food markets" }, d: { fr: "Outre les marchés A et B de la ville, huit marchés périodiques se tiennent dans les villages : Bamena, Batoum, Kamna, Babou, Sagna, Bangoulap, Bangangté et Bangoua.", en: "Besides markets A and B in town, eight periodic markets are held in the villages: Bamena, Batoum, Kamna, Babou, Sagna, Bangoulap, Bangangté and Bangoua." } },
+  { icon: "users", t: { fr: "Élevage et pisciculture", en: "Livestock and fish farming" }, d: { fr: "Bovins, chèvres, porcs, volailles, abeilles et une vingtaine d'étangs piscicoles. La commune dispose d'un abattoir municipal et d'un marché à bétail ; les animaux sont vaccinés deux fois par an.", en: "Cattle, goats, pigs, poultry, bees and some twenty fish ponds. The council runs a municipal slaughterhouse and a livestock market; animals are vaccinated twice a year." } },
+  { icon: "pin", t: { fr: "Transport", en: "Transport" }, d: { fr: "La route nationale n° 4 traverse la commune et la relie à Yaoundé, Bafoussam et aux régions voisines : un carrefour pour les voyageurs et les marchandises.", en: "National road no. 4 crosses the council and links it to Yaoundé, Bafoussam and neighbouring regions: a crossroads for travellers and goods." } },
+  { icon: "drop", t: { fr: "Santé", en: "Health" }, d: { fr: "Quinze structures de santé dans l'arrondissement, dont l'hôpital de district et l'hôpital protestant, onze centres de santé intégrés et quatre pharmacies.", en: "Fifteen health facilities in the subdivision, including the district hospital and the Protestant hospital, eleven integrated health centres and four pharmacies." } },
+  { icon: "mask", t: { fr: "Artisanat", en: "Crafts" }, d: { fr: "Broderie et teinture des tissus, forge, sculpture de masques et de tabourets dans les chefferies, poterie à Bangoua, tissage de sacs et de nattes : un savoir-faire bamiléké bien vivant.", en: "Embroidery and fabric dyeing, smithing, masks and stools carved in the chiefdoms, pottery at Bangoua, woven bags and mats: Bamiléké craft is alive and well." } },
+];
+
 export default function Ville() {
   return (
     <>
@@ -32,8 +42,8 @@ export default function Ville() {
         kicker={{ fr: "Chef-lieu du Ndé depuis 1961", en: "Capital of the Ndé since 1961" }}
         title={{ fr: "La ville", en: "The town" }}
         lead={{ fr: "Administrative, universitaire et commerçante, Bangangté est connue dans tout le Cameroun pour sa propreté et la vitalité de ses quartiers.", en: "An administrative, university and market town, Bangangté is known across Cameroon for its cleanliness and lively neighbourhoods." }}
-        img="marche2"
-        inset="hdv"
+        img="aerial"
+        inset="rue"
         badge={{ big: "1961", small: { fr: "Chef-lieu du Ndé", en: "Ndé capital" } }}
         facts={[{ fr: "56 villages et quartiers", en: "56 villages and quarters" }, { fr: "Université des Montagnes", en: "Université des Montagnes" }, { fr: "Marché central de 304 boutiques", en: "304-shop central market" }]}
       />
@@ -55,7 +65,7 @@ export default function Ville() {
           <div className="mosaic" data-reveal="clip">
             <figure><Img k="stade" /><figcaption><T fr={IMG.stade.fr} en={IMG.stade.en} /></figcaption></figure>
             <figure><Img k="udm5" w={500} /><figcaption><T fr={IMG.udm5.fr} en={IMG.udm5.en} /></figcaption></figure>
-            <figure><Img k="defile" w={500} /><figcaption><T fr={IMG.defile.fr} en={IMG.defile.en} /></figcaption></figure>
+            <figure><Img k="aerial2" w={500} /><figcaption><T fr={IMG.aerial2.fr} en={IMG.aerial2.en} /></figcaption></figure>
           </div>
         </div>
       </section>
@@ -115,7 +125,18 @@ export default function Ville() {
         </div>
       </section>
 
-      <section className="sec sec-alt">
+      <section className="sec sec-alt" id="economie">
+        <div className="wrap">
+          <SecHead kicker={{ fr: "Économie et territoire", en: "Economy and land" }} title={{ fr: "Une terre fertile, un carrefour commerçant", en: "Fertile land and a trading crossroads" }} text={{ fr: "Climat d'altitude entre 14 et 28 °C, saison sèche de mi-novembre à mi-mars et pluies le reste de l'année : des conditions idéales pour l'agriculture et l'élevage.", en: "A highland climate between 14 and 28 °C, a dry season from mid-November to mid-March and rain the rest of the year: ideal conditions for farming and livestock." }} />
+          <ul className="svc" data-stagger>
+            {ECONOMY.map((p) => (
+              <li key={p.t.fr}><span className="pi"><Icon name={p.icon} /></span><div><h3><T fr={p.t.fr} en={p.t.en} /></h3><p><T fr={p.d.fr} en={p.d.en} /></p></div></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="sec">
         <div className="wrap">
           <SecHead kicker={{ fr: "Grands projets", en: "Major projects" }} title={{ fr: "La ville en chantier", en: "A town on the move" }} aside={<Link className="link-arrow" data-reveal href="/mairie#investir"><T fr="Investir à Bangangté" en="Invest in Bangangté" /><Icon name="arrow" /></Link>} />
           <ul className="svc" data-stagger>

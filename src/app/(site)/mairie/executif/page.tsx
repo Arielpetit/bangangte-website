@@ -24,7 +24,17 @@ export default async function Executif() {
       <section className="sec">
         <div className="wrap">
           <SecHead kicker={{ fr: "Composition", en: "Members" }} title={{ fr: "Le Maire et ses adjoints", en: "The mayor and deputies" }} text={{ fr: "Nouvelle configuration adoptée lors de la session extraordinaire du 16 septembre 2026, après le décès du Dr Robert NYANGANG, premier adjoint.", en: "Configuration adopted at the extraordinary session of 16 September 2026, after the death of the first deputy, Dr Robert NYANGANG." }} />
-          <div className="exec" data-stagger>{executive.map((p, i) => <PersonTile key={p.id} p={p} big={i === 0} />)}</div>
+          <div className="exec-tree">
+            <div className="exec-mayor" data-reveal>{executive[0] && <PersonTile p={executive[0]} big />}</div>
+            {executive.length > 1 && (
+              <>
+                <div className="exec-vbar" aria-hidden="true" />
+                <div className="exec-deputies" data-stagger>
+                  {executive.slice(1).map((p) => <PersonTile key={p.id} p={p} />)}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </section>
       <section className="sec sec-alt">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { B, CommuniqueList, D, EventTile, NewsBlock, Pic, ProjectCard } from "@/components/mairie";
+import { B, CommuniqueFeed, D, EventTile, NewsBlock, Pic, ProjectCard } from "@/components/mairie";
 import { Credit, Icon, Img, SecHead, T } from "@/components/ui";
 import { getCommuniques, getFeaturedPosts, getPeople, getProcedures, getProjects, getSettings, getUpcomingEvents } from "@/lib/data/content";
 import { initials, mediaUrl } from "@/lib/data/format";
@@ -15,12 +15,6 @@ const QUICK = [
   { theme: "jeunesse", href: "/services#jeunesse", icon: "briefcase", t: { fr: "Emploi jeunes", en: "Youth jobs" }, d: { fr: "Bureau de l'emploi, stages", en: "Jobs office, internships" } },
   { theme: "social", href: "/services#social", icon: "users", t: { fr: "Aide sociale", en: "Social help" }, d: { fr: "Comité des aides et secours", en: "Assistance committee" } },
 ] as const;
-
-const PROGRAMMES = [
-  { fr: "Jeudi propre", en: "Clean Thursday" }, { fr: "Bangangté, ville fontaine", en: "Bangangté, fountain city" }, { fr: "Un quartier, une lumière", en: "One quarter, one light" },
-  { fr: "Vacances utiles", en: "Holiday internships" }, { fr: "Bureau municipal de l'emploi", en: "Municipal employment office" }, { fr: "Noël pour tous", en: "Christmas for all" },
-  { fr: "Comité des aides et secours", en: "Social assistance committee" }, { fr: "Comités de village", en: "Village committees" },
-];
 
 export default async function Home() {
   const [posts, communiques, events, executive, projects, settings, procedures] = await Promise.all([
@@ -128,20 +122,12 @@ export default async function Home() {
         </div>
       </section>
 
-      <div className="tk" aria-hidden="true">
-        <div className="tk-band tk-a">
-          <div className="tk-track">{[...PROGRAMMES, ...PROGRAMMES].map((p, i) => <span key={i} className={i % 2 ? "o" : undefined}><T fr={p.fr} en={p.en} /></span>)}</div>
-        </div>
-        <div className="tk-band tk-b">
-          <div className="tk-track rev">{[...PROGRAMMES.slice(4), ...PROGRAMMES.slice(0, 4), ...PROGRAMMES.slice(4), ...PROGRAMMES.slice(0, 4)].map((p, i) => <span key={i} className={i % 2 ? undefined : "o"}><T fr={p.fr} en={p.en} /></span>)}</div>
-        </div>
-      </div>
-
       <section className="sec">
         <div className="wrap split-2">
           <div>
-            <SecHead kicker={{ fr: "Officiel", en: "Official" }} title={{ fr: "Communiqués et avis", en: "Notices" }} aside={<Link className="link-arrow" data-reveal href="/communiques"><T fr="Tous" en="All" /><Icon name="arrow" /></Link>} />
-            <CommuniqueList items={communiques} />
+            <SecHead kicker={{ fr: "Officiel", en: "Official" }} title={{ fr: "Communiqués et avis", en: "Notices" }} />
+            <CommuniqueFeed items={communiques} />
+            <Link className="link-arrow" data-reveal href="/communiques" style={{ marginTop: "1.2rem" }}><T fr="Tous les communiqués" en="All notices" /><Icon name="arrow" /></Link>
           </div>
           <div>
             <SecHead kicker={{ fr: "Agenda", en: "Events" }} title={{ fr: "Prochains rendez-vous", en: "Coming up" }} aside={<Link className="link-arrow" data-reveal href="/agenda"><T fr="L'agenda" en="Calendar" /><Icon name="arrow" /></Link>} />
@@ -203,7 +189,7 @@ export default async function Home() {
             <Link className="tile" href="/culture#table"><Img k="taro" /><span className="tag"><T fr="Saveurs" en="Food" /></span><div className="tile-body"><h3><T fr="Taro et sauce jaune" en="Taro and yellow sauce" /></h3><p><T fr="Le plat des grandes occasions." en="The dish for great occasions." /></p></div></Link>
             <Link className="tile" href="/personnalites"><Img k="roi2" w={500} /><span className="tag"><T fr="Royaume" en="Kingdom" /></span><div className="tile-body"><h3><T fr="Le roi et ses notables" en="The king and his notables" /></h3><p><T fr="Quinze rois depuis 1665." en="Fifteen kings since 1665." /></p></div></Link>
             <Link className="tile t-wide" href="/nature"><Img k="tagny" /><span className="tag"><T fr="Lieux sacrés" en="Sacred places" /></span><div className="tile-body"><h3><T fr="Tagny, Mbwregoum et forêts sacrées" en="Tagny, Mbwregoum and sacred forests" /></h3><p><T fr="Des sites de rassemblement et de pèlerinage, à visiter sur autorisation." en="Gathering and pilgrimage sites, visited with permission." /></p></div></Link>
-            <Link className="tile t-wide" href="/ville"><Img k="marche2" w={1280} /><span className="tag"><T fr="La ville" en="The town" /></span><div className="tile-body"><h3><T fr="Marchés et vie de quartier" en="Markets and neighbourhood life" /></h3><p><T fr="Grand marché le samedi, petit marché le mercredi." en="Big market on Saturdays, small market on Wednesdays." /></p></div></Link>
+            <Link className="tile t-wide" href="/ville"><Img k="rue" w={1280} /><span className="tag"><T fr="La ville" en="The town" /></span><div className="tile-body"><h3><T fr="Marchés et vie de quartier" en="Markets and neighbourhood life" /></h3><p><T fr="Grand marché le samedi, petit marché le mercredi." en="Big market on Saturdays, small market on Wednesdays." /></p></div></Link>
           </div>
         </div>
       </section>
@@ -219,7 +205,7 @@ export default async function Home() {
               <a className="btn btn-line" href={`tel:${settings.phone.replace(/\s+/g, "")}`}><Icon name="phone" />{settings.phone}</a>
             </div>
           </div>
-          <div className="deco" data-reveal="clip"><figure className="frame wide" style={{ margin: 0 }}><Pic url="img:marche2" alt="Marché de Bangangté" w={1280} /></figure></div>
+          <div className="deco" data-reveal="clip"><figure className="frame" style={{ margin: 0 }}><Pic url="img:ville_air" alt="Le centre-ville de Bangangté vu du ciel" w={960} /></figure></div>
         </div>
       </section>
       <p className="sr"><Credit k="hdv" /></p>

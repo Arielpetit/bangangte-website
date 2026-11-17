@@ -22,8 +22,8 @@ export default async function Projets({ searchParams }: { searchParams: Promise<
         kicker={{ fr: "La Mairie", en: "Town hall" }}
         title={{ fr: "Projets", en: "Projects" }}
         lead={{ fr: "Écoles, eau potable, routes, ponts, éclairage et équipements marchands : suivez l'avancement des investissements de la commune.", en: "Schools, drinking water, roads, bridges, lighting and markets: follow the progress of council investments." }}
-        img="marche2"
-        inset="aerial"
+        img="aerial2"
+        inset="rue"
         badge={{ big: String(all.length), small: { fr: "projets suivis", en: "projects tracked" } }}
       />
       <section className="sec sec-dark">

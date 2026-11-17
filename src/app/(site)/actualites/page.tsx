@@ -32,7 +32,7 @@ export default async function Actualites({ searchParams }: { searchParams: Promi
         title={{ fr: "Actualités", en: "News" }}
         lead={{ fr: "La vie de la commune au fil des semaines : chantiers, conseil municipal, Jeudi propre, jeunesse, solidarité et coopération.", en: "Council life week by week: building works, council sessions, Clean Thursday, youth, solidarity and cooperation." }}
         img={real[0] ?? "img:hdv"}
-        inset={real[1] ?? "img:marche2"}
+        inset={real[1] ?? "img:rue"}
         badge={{ big: String(all.length), small: { fr: "articles publiés", en: "articles" } }}
       />
       <section className="sec">

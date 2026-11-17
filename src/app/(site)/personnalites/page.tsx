@@ -2,15 +2,31 @@ import Link from "next/link";
 import { PeopleGroup } from "@/components/PersonCard";
 import { Icon, Img, SecHead, T } from "@/components/ui";
 import { meta } from "@/lib/meta";
-import { ARTS, FIGURES, OTHERS, POLITICS, ROIS, SPORT } from "@/lib/people";
+import { CULTURAL_TIERS, POLITICAL_TIERS, TRADITIONAL_TIERS, type Tier } from "@/lib/people";
 import { Hero } from "@/components/Hero";
 
-export const metadata = meta("Personnalités", "Notable people", "Le roi, les notables, les maires, ministres, médecins, diplomates et écrivains : les grandes figures de Bangangté.");
+export const metadata = meta("Personnalités", "Notable people", "Les sept chefs traditionnels, les élus et ministres, les artistes, sportifs et médecins : les grandes figures de Bangangté, classées par rang.");
 
 const NOTABLES = [
   ["Menkam Njalan", "deuxième", "second"], ["Nja Njeuh Nya", "quatrième", "fourth"], ["Nja Tchumguet", "cinquième", "fifth"],
   ["Nja Nsoub Ngaheu", "sixième", "sixth"], ["Menkam Yomi", "septième", "seventh"], ["Menmafeun Nga Ndoumane", "huitième", "eighth"], ["Tei Nsoub Nziki", "neuvième", "ninth"],
 ];
+
+function TierBlock({ tier, level }: { tier: Tier; level?: number }) {
+  const solo = tier.people.length === 1;
+  return (
+    <div className={`tier${tier.cols === 3 ? " cols3" : ""}`}>
+      <div className="patriarche-tier-label" data-reveal>
+        <div className="pi"><Icon name={tier.icon} /></div>
+        <h3><T fr={tier.title.fr} en={tier.title.en} /></h3>
+        {tier.badge ? <span className="tier-lvl"><T fr={tier.badge.fr} en={tier.badge.en} /></span> : level && <span className="tier-lvl"><T fr={`Rang ${level}`} en={`Rank ${level}`} /></span>}
+      </div>
+      <div className={solo ? "patriarche-feat" : undefined} data-reveal={solo ? "" : undefined}>
+        <PeopleGroup people={tier.people} />
+      </div>
+    </div>
+  );
+}
 
 export default function Personnalites() {
   return (
@@ -19,39 +35,24 @@ export default function Personnalites() {
         crumb={{ fr: "Personnalités", en: "Notable people" }}
         kicker={{ fr: "Noblesse, dignité, élégance", en: "Nobility, dignity, elegance" }}
         title={{ fr: "Personnalités", en: "People" }}
-        lead={{ fr: "Autour du roi, des notables et des fils et filles de Bangangté qui rayonnent en politique, en médecine, en diplomatie et en culture.", en: "Around the king, the notables and the sons and daughters of Bangangté who shine in politics, medicine, diplomacy and culture." }}
-        img="roi"
+        lead={{ fr: "Les sept chefs traditionnels, les élus et ministres, puis les artistes, sportifs et médecins : les fils et filles de Bangangté qui rayonnent.", en: "The seven traditional chiefs, elected officials and ministers, then the artists, athletes and doctors: the sons and daughters of Bangangté who shine." }}
+        img="rituel"
         inset="femme1"
-        badge={{ big: <T fr="15e" en="15th" />, small: { fr: "roi des Bangangté", en: "king of the Bangangté" } }}
+        badge={{ big: "7", small: { fr: "chefs traditionnels", en: "traditional chiefs" } }}
       />
 
-      <section className="sec">
-        <div className="wrap split">
-          <div className="deco" data-reveal="clip"><figure className="frame" style={{ margin: 0 }}><Img k="roi2" /></figure></div>
-          <div>
-            <p className="kicker" data-reveal><T fr="Chef supérieur des Bangangté" en="Paramount chief of the Bangangté" /></p>
-            <h2 data-reveal><T fr="Sa Majesté Nji Monluh Seidou Pokam" en="His Majesty Nji Monluh Seidou Pokam" /></h2>
-            <p className="lead" data-reveal><T fr="15e roi de la dynastie Mveun Nga', sur le trône depuis 1987." en="15th king of the Mveun Nga' dynasty, on the throne since 1987." /></p>
-            <p data-reveal><T fr="Ingénieur agronome, gardien des traditions et président des procès coutumiers, il est le seul maître des rituels ancestraux du Mbwregoum. Il est aussi l'initiateur du COMENGA, le congrès mondial des Bangangté. Son titre, Nzui Manto, évoque la panthère royale." en="An agricultural engineer, keeper of traditions and presiding judge of customary courts, he alone leads the ancestral rites of the Mbwregoum. He also founded COMENGA, the world congress of the Bangangté. His title, Nzui Manto, refers to the royal panther." /></p>
-            <a className="btn btn-line" data-reveal href="https://www.chefferie-superieure-bangangte.com/" rel="noopener" target="_blank"><T fr="Site de la Chefferie supérieure" en="Paramount chiefdom website" /></a>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec sec-alt">
+      <section className="sec" id="tradition">
         <div className="wrap">
-          <SecHead kicker={{ fr: "Grandes figures", en: "Leading figures" }} title={{ fr: "Ils ont marqué l'histoire du Cameroun", en: "They left their mark on Cameroon" }} />
-          <PeopleGroup people={FIGURES} />
-          <h3 className="group-title" data-reveal><T fr="Rois des chefferies voisines" en="Kings of neighbouring chiefdoms" /></h3>
-          <PeopleGroup people={ROIS} />
-          <h3 className="group-title" data-reveal><T fr="Vie politique" en="Politics" /></h3>
-          <PeopleGroup people={POLITICS} />
-          <h3 className="group-title" data-reveal><T fr="Médecine, éducation, diplomatie et diaspora" en="Medicine, education, diplomacy and diaspora" /></h3>
-          <PeopleGroup people={OTHERS} />
-          <h3 className="group-title" data-reveal><T fr="Arts, lettres et médias" en="Arts, letters and media" /></h3>
-          <PeopleGroup people={ARTS} />
-          <h3 className="group-title" data-reveal><T fr="Sport : footballeurs internationaux et champions" en="Sport: international footballers and champions" /></h3>
-          <PeopleGroup people={SPORT} />
+          <nav className="cat-nav" aria-label="Sections" data-reveal>
+            <a href="#tradition"><T fr="Autorité traditionnelle" en="Traditional authority" /></a>
+            <a href="#politique"><T fr="Vie politique" en="Politics" /></a>
+            <a href="#culture"><T fr="Culture, sport et société" en="Culture, sport and society" /></a>
+          </nav>
+          <SecHead kicker={{ fr: "Autorité traditionnelle", en: "Traditional authority" }} title={{ fr: "Les sept chefs de la commune", en: "The council's seven chiefs" }} text={{ fr: "Sept royaumes, sept souverains. Le chef supérieur de Bangangté, de 1er degré, est présenté en premier ; les six chefs de 2e degré viennent ensuite, à égalité et par ordre alphabétique.", en: "Seven kingdoms, seven sovereigns. The paramount chief of Bangangté, of the 1st degree, comes first; the six 2nd-degree chiefs follow, on equal footing and in alphabetical order." }} />
+          {TRADITIONAL_TIERS.map((t) => <TierBlock key={t.id} tier={t} />)}
+          <div className="btn-row" data-reveal style={{ marginTop: "1.4rem" }}>
+            <Link className="btn btn-solid" href="/chefferies"><T fr="Les sept chefferies en détail" en="The seven chiefdoms in detail" /><Icon name="arrow" /></Link>
+          </div>
         </div>
       </section>
 
@@ -59,9 +60,9 @@ export default function Personnalites() {
       <section className="sec sec-dark">
         <div className="wrap split">
           <div>
-            <p className="kicker" data-reveal><T fr="Autour du roi" en="Around the king" /></p>
+            <p className="kicker" data-reveal><T fr="Chefferie de Bangangté" en="Bangangté chiefdom" /></p>
             <h2 data-reveal><T fr="Le Conseil des neuf notables" en="The Council of Nine Notables" /></h2>
-            <p className="lead" data-reveal><T fr="Neuf notables assistent le roi dans les grandes décisions. La société Mandjong, force de défense et d'ordre coutumier, veille sur les cérémonies royales et les lieux sacrés." en="Nine notables advise the king on major decisions. The Mandjong society, the customary guard, watches over royal ceremonies and sacred places." /></p>
+            <p className="lead" data-reveal><T fr="Auprès du roi de Bangangté, neuf notables assistent le souverain dans les grandes décisions. La société Mandjong, force de défense et d'ordre coutumier, veille sur les cérémonies royales et les lieux sacrés." en="Alongside the king of Bangangté, nine notables advise the sovereign on major decisions. The Mandjong society, the customary guard, watches over royal ceremonies and sacred places." /></p>
             <ul className="list-check" data-stagger>
               {NOTABLES.map(([n, fr, en]) => <li key={n}>{n}, <T fr={`${fr} notable`} en={`${en} notable`} /></li>)}
             </ul>
@@ -70,7 +71,21 @@ export default function Personnalites() {
         </div>
       </section>
 
-      <section className="sec">
+      <section className="sec sec-alt" id="politique">
+        <div className="wrap">
+          <SecHead kicker={{ fr: "Vie politique", en: "Politics" }} title={{ fr: "Du sommet de l'État à la mairie", en: "From the top of the State to the town hall" }} text={{ fr: "Les personnalités politiques sont classées par rang : l'État, le gouvernement, le Parlement, puis la commune.", en: "Political figures are ranked: the State, government, Parliament, then the council." }} />
+          {POLITICAL_TIERS.map((t, i) => <TierBlock key={t.id} tier={t} level={i + 1} />)}
+        </div>
+      </section>
+
+      <section className="sec" id="culture">
+        <div className="wrap">
+          <SecHead kicker={{ fr: "Culture, sport et société", en: "Culture, sport and society" }} title={{ fr: "Artistes, champions et médecins", en: "Artists, champions and doctors" }} text={{ fr: "Les figures de la culture, du sport et de la société civile, séparées de la vie politique.", en: "Figures from culture, sport and civil society, kept apart from politics." }} />
+          {CULTURAL_TIERS.map((t) => <TierBlock key={t.id} tier={t} />)}
+        </div>
+      </section>
+
+      <section className="sec sec-alt">
         <div className="wrap split">
           <div>
             <h2 data-reveal><T fr="Une personnalité à ajouter ?" en="Someone missing?" /></h2>

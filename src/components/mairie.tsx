@@ -5,7 +5,7 @@ import {
   COMMUNIQUE_KINDS, EVENT_CATEGORIES, POST_CATEGORIES, PROCEDURE_THEMES, PROJECT_STATUS,
   type CalEvent, type Communique, type Person, type Post, type Procedure, type Project,
 } from "@/lib/data/types";
-import { Icon, T } from "./ui";
+import { Icon, Img, T } from "./ui";
 
 /** Image de contenu (bibliothèque du site ou Supabase Storage), texte alternatif bilingue. */
 export function Pic({ url, alt, w = 960, className, priority }: { url: string | null | undefined; alt: string; w?: number; className?: string; priority?: boolean }) {
@@ -95,6 +95,29 @@ export function CommuniqueRow({ c }: { c: Communique }) {
 export function CommuniqueList({ items }: { items: Communique[] }) {
   if (!items.length) return <Empty fr="Aucun communiqué publié." en="No notices published." />;
   return <ul className="cq-list" data-stagger>{items.map((c) => <CommuniqueRow key={c.id} c={c} />)}</ul>;
+}
+
+export function CommuniqueFeed({ items }: { items: Communique[] }) {
+  if (!items.length) return <Empty fr="Aucun communiqué publié." en="No notices published." />;
+  const [first, ...rest] = items;
+  const d = dayMonth(first.published_at);
+  return (
+    <div className="cqf" data-stagger>
+      <Link className={`cqf-hero${first.urgent ? " is-urgent" : ""}`} href={`/communiques/${first.slug}`}>
+        <Img k="rue" w={960} />
+        <span className="cqf-body">
+          <KindChip kind={first.kind} urgent={first.urgent} />
+          <strong><B fr={first.title_fr} en={first.title_en} /></strong>
+          <span className="cqf-meta">
+            <Icon name="calendar" /><span>{d.day} <T fr={d.month.fr} en={d.month.en} /> {d.year}</span>
+            {first.ref && <span>· Réf. {first.ref}</span>}
+          </span>
+          <span className="cqf-cta"><T fr="Lire le communiqué" en="Read the notice" /><Icon name="arrow" /></span>
+        </span>
+      </Link>
+      {rest.length > 0 && <ul className="cq-list cq-compact">{rest.map((c) => <CommuniqueRow key={c.id} c={c} />)}</ul>}
+    </div>
+  );
 }
 
 // ---------- Agenda ----------

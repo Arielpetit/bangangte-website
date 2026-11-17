@@ -55,7 +55,7 @@ export default async function Article({ params }: Props) {
               <RichText html={bodyEn ?? bodyFr} />
             </div>
             {p.gallery.length > 0 && <PhotoStrip photos={p.gallery} title={p.title_fr} />}
-            <p className="source-note"><Icon name="news" /><T fr="© CELCOM, Commune de Bangangté" en="© CELCOM, Bangangté council" />{p.source_url && <> · <a href={p.source_url} rel="noopener" target="_blank"><T fr="Publication d'origine" en="Original post" /></a></>}</p>
+            <p className="source-note"><Icon name="news" /><T fr="© CELCOM, Commune de Bangangté" en="© CELCOM, Bangangté council" />{p.source_url && <> · <a href={p.source_url} rel="noopener" target="_blank">{p.source_url.includes("web.archive.org") ? <T fr="Archive de l'ancien site de la commune" en="Archive of the former council website" /> : <T fr="Publication d'origine" en="Original post" />}</a></>}</p>
           </article>
           <aside className="article-aside">
             <div className="aside-card">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icon, Img, Media, SecHead, T } from "@/components/ui";
+// Icon is used as decorative bg — no extra import needed
 import { PersonTile, PostCard } from "@/components/mairie";
 import { getPeople, getPosts, getSettings } from "@/lib/data/content";
 import { IMG } from "@/lib/images";
@@ -52,8 +53,8 @@ export default async function Mairie() {
             </div>
           </div>
           <div className="mosaic" data-reveal="clip">
-            <figure><Img k="marche2" /><figcaption><T fr={IMG.marche2.fr} en={IMG.marche2.en} /></figcaption></figure>
-            <figure><Img k="defile" w={500} /><figcaption><T fr={IMG.defile.fr} en={IMG.defile.en} /></figcaption></figure>
+            <figure><Img k="rue" /><figcaption><T fr={IMG.rue.fr} en={IMG.rue.en} /></figcaption></figure>
+            <figure><Img k="elus" w={500} /><figcaption><T fr={IMG.elus.fr} en={IMG.elus.en} /></figcaption></figure>
             <figure><Img k="stade" w={500} /><figcaption><T fr={IMG.stade.fr} en={IMG.stade.en} /></figcaption></figure>
           </div>
         </div>
@@ -64,7 +65,8 @@ export default async function Mairie() {
           <SecHead kicker={{ fr: "L'institution", en: "The institution" }} title={{ fr: "Qui fait quoi à la mairie", en: "Who does what at the council" }} />
           <div className="g3" data-stagger>
             {SECTIONS.map((x) => (
-              <Link key={x.href} className="panel" href={x.href} style={{ textDecoration: "none", color: "inherit" }}>
+              <Link key={x.href} className="panel qfq" href={x.href} style={{ textDecoration: "none", color: "inherit" }}>
+                <span className="qfq-bg" aria-hidden="true"><Icon name={x.icon} /></span>
                 <div className="pi"><Icon name={x.icon} /></div>
                 <h3><T fr={x.t.fr} en={x.t.en} /></h3>
                 <p><T fr={x.d.fr} en={x.d.en} /></p>
@@ -77,7 +79,17 @@ export default async function Mairie() {
       <section className="sec">
         <div className="wrap">
           <SecHead kicker={{ fr: "Mandature 2020-2026", en: "2020-2026 term" }} title={{ fr: "L'exécutif municipal", en: "The executive" }} aside={<Link className="link-arrow" data-reveal href="/mairie/executif"><T fr="En savoir plus" en="Learn more" /><Icon name="arrow" /></Link>} />
-          <div className="exec" data-stagger>{executive.map((p, i) => <PersonTile key={p.id} p={{ ...p, bio_fr: i === 0 ? p.bio_fr : null }} big={i === 0} />)}</div>
+          <div className="exec-tree">
+            <div className="exec-mayor" data-reveal>{executive[0] && <PersonTile p={{ ...executive[0] }} big />}</div>
+            {executive.length > 1 && (
+              <>
+                <div className="exec-vbar" aria-hidden="true" />
+                <div className="exec-deputies" data-stagger>
+                  {executive.slice(1).map((p) => <PersonTile key={p.id} p={{ ...p, bio_fr: null }} />)}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </section>
 
@@ -102,7 +114,7 @@ export default async function Mairie() {
       <section className="sec" id="investir">
         <div className="wrap g2">
           <article className="card" data-reveal>
-            <Media k="marche2" w={1280} />
+            <Media k="ville_air" w={960} />
             <p className="kicker" style={{ margin: 0 }}><T fr="Investir" en="Invest" /></p>
             <h3 style={{ fontSize: "clamp(1.6rem,3vw,2.2rem)" }}><T fr="Investir à Bangangté" en="Invest in Bangangté" /></h3>
             <ul className="list-check" style={{ margin: 0 }}>

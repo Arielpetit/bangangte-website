@@ -18,7 +18,7 @@ export default async function Conseil() {
         kicker={{ fr: "La Mairie", en: "Town hall" }}
         title={{ fr: "Le Conseil", en: "The council" }}
         lead={{ fr: "Organe délibérant de la commune, le Conseil municipal vote le budget, adopte les comptes et décide des grandes orientations.", en: "The council's deliberative body votes the budget, adopts the accounts and sets the main policies." }}
-        img="defile"
+        img="elus"
         badge={{ big: "41", small: { fr: "conseillers municipaux", en: "councillors" } }}
       />
       <section className="sec">

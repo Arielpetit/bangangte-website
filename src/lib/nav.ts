@@ -32,6 +32,7 @@ export const GROUPS: NavGroup[] = [
     intro: { fr: "Ce qui se passe à la mairie et dans la commune", en: "What is happening at the council and in town" },
     items: [
       { href: "/actualites", icon: "news", label: { fr: "Actualités", en: "News" }, desc: { fr: "La vie de la commune, chaque semaine", en: "Council life, week by week" } },
+      { href: "/activites", icon: "layers", label: { fr: "Activités communales", en: "Council activities" }, desc: { fr: "Plus de dix ans d'action, année par année", en: "Over ten years of action, year by year" } },
       { href: "/communiques", icon: "megaphone", label: { fr: "Communiqués et avis", en: "Notices" }, desc: { fr: "Annonces officielles, appels, alertes", en: "Official notices, calls, alerts" } },
       { href: "/agenda", icon: "calendar", label: { fr: "Agenda", en: "Events" }, desc: { fr: "Jeudi propre, conseils, fêtes et festivals", en: "Clean Thursday, sessions, celebrations" } },
       { href: "/galerie", icon: "image", label: { fr: "Photothèque", en: "Photo library" }, desc: { fr: "Les images de Bangangté", en: "Images of Bangangté" } },
@@ -59,6 +60,7 @@ export const GROUPS: NavGroup[] = [
     items: [
       { href: "/ville", icon: "city", label: { fr: "La ville", en: "The town" }, desc: { fr: "Quartiers, équipements et vie locale", en: "Neighbourhoods, facilities, local life" } },
       { href: "/histoire", icon: "book", label: { fr: "Histoire", en: "History" }, desc: { fr: "De la fondation aux 15 rois", en: "From its founding to the 15 kings" } },
+      { href: "/chefferies", icon: "landmark", label: { fr: "Chefferies", en: "Chiefdoms" }, desc: { fr: "Les sept royaumes de la commune", en: "The council's seven kingdoms" } },
       { href: "/personnalites", icon: "users", label: { fr: "Personnalités", en: "Notable people" }, desc: { fr: "Le roi, les notables, les grandes figures", en: "The king, notables and leading figures" } },
       { href: "/nature", icon: "mountain", label: { fr: "Nature et sites", en: "Nature and sights" }, desc: { fr: "Chutes, grottes, lacs, lieux sacrés", en: "Waterfalls, caves, lakes, sacred places" } },
       { href: "/culture", icon: "mask", label: { fr: "Culture et saveurs", en: "Culture and food" }, desc: { fr: "Medumba, danses, ndop et cuisine", en: "Medumba, dances, ndop and food" } },
