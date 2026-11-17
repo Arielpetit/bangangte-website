@@ -12,7 +12,7 @@ const QUICK = [
   { theme: "etat_civil", href: "/services#etat_civil", icon: "file", t: { fr: "État civil", en: "Civil records" }, d: { fr: "Actes de naissance, de mariage et de décès, copies et légalisations.", en: "Birth, marriage and death certificates, copies and certifications." } },
   { theme: "urbanisme", href: "/services#urbanisme", icon: "build", t: { fr: "Urbanisme", en: "Planning" }, d: { fr: "Permis de bâtir, certificats", en: "Building permits, certificates" } },
   { theme: "commerce", href: "/services#commerce", icon: "store", t: { fr: "Marchés", en: "Markets" }, d: { fr: "Boutiques et places", en: "Shops and pitches" } },
-  { theme: "jeunesse", href: "/services#jeunesse", icon: "briefcase", t: { fr: "Emploi jeunes", en: "Youth jobs" }, d: { fr: "Bureau de l'emploi, stages", en: "Jobs office, internships" } },
+  { theme: "jeunesse", href: "/emploi-jeunes", icon: "briefcase", t: { fr: "Emploi jeunes", en: "Youth jobs" }, d: { fr: "Bureau de l'emploi, stages", en: "Jobs office, internships" } },
   { theme: "social", href: "/services#social", icon: "users", t: { fr: "Aide sociale", en: "Social help" }, d: { fr: "Comité des aides et secours", en: "Assistance committee" } },
 ] as const;
 
