@@ -47,7 +47,7 @@ export const GROUPS: NavGroup[] = [
       { href: "/services", icon: "file", label: { fr: "Toutes les démarches", en: "All formalities" }, desc: { fr: "Pièces à fournir, coûts et délais", en: "Documents, fees and timing" } },
       { href: "/services#etat_civil", icon: "book", label: { fr: "État civil", en: "Civil records" }, desc: { fr: "Naissance, mariage, décès, copies", en: "Birth, marriage, death, copies" } },
       { href: "/services#urbanisme", icon: "build", label: { fr: "Urbanisme", en: "Planning" }, desc: { fr: "Permis de bâtir, certificats", en: "Building permits, certificates" } },
-      { href: "/services#jeunesse", icon: "briefcase", label: { fr: "Emploi des jeunes", en: "Youth jobs" }, desc: { fr: "Bureau de l'emploi, stages de vacances", en: "Employment office, internships" } },
+      { href: "/emploi-jeunes", icon: "briefcase", label: { fr: "Emploi des jeunes", en: "Youth employment" }, desc: { fr: "Bureau de l'emploi, stages et plateforme BAM", en: "Employment office, internships and the BAM platform" } },
       { href: "/services/signaler", icon: "alert", label: { fr: "Signaler un problème", en: "Report a problem" }, desc: { fr: "Ordures, voirie, éclairage, eau", en: "Waste, roads, lighting, water" } },
       { href: "/contact", icon: "phone", label: { fr: "Contacter la mairie", en: "Contact the council" }, desc: { fr: "Horaires, adresse et formulaire", en: "Hours, address and form" } },
     ],
