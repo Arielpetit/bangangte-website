@@ -79,7 +79,7 @@ export const IMG = {
   bhb: { path: "c/c1/Beignets_haricot_bouillie_%28BHB%29.jpg", width: 4464, author: "Minette Lontsie", license: "CC BY-SA 4.0", fr: "Beignets, haricots et bouillie : un petit-déjeuner populaire", en: "Doughnuts, beans and porridge: a popular breakfast" },
   jeunesse_defile: { path: "b/b0/C%C3%A9l%C3%A9bration_de_la_F%C3%AAte_Nationale_de_la_Jeunesse_2025_%C3%A0_Bonab%C3%A9ri_le_11_f%C3%A9vrier_%28Douala_IVe%29_06.jpg", width: 2048, author: "Tchoumegni", license: "CC BY-SA 4.0", fr: "Écoliers au défilé de la Fête de la jeunesse, Douala, 11 février 2025", en: "Schoolchildren at the Youth Day parade, Douala, 11 February 2025" },
   defile_eleves: { path: "e/e0/El%C3%A8ves_au_d%C3%A9fil%C3%A92.jpg", width: 4500, author: "Happiraphael", license: "CC BY-SA 4.0", fr: "Élèves et étudiants au défilé de la fête nationale, Douala, 20 mai 2019", en: "Pupils and students at the National Day parade, Douala, 20 May 2019" },
-  elus: { path: "/images/local/elus-et-autorites.webp", width: 1106, author: "Commune de Bangangté", license: "droits réservés", fr: "Élus municipaux, autorités administratives et chefs traditionnels de la commune de Bangangté", en: "Councillors, administrative authorities and traditional chiefs of Bangangté council" },
+  elus: { path: "/images/local/elus-et-autorites.webp", width: 1024, author: "Commune de Bangangté", license: "droits réservés", fr: "Élus municipaux, autorités administratives et chefs traditionnels de la commune de Bangangté", en: "Councillors, administrative authorities and traditional chiefs of Bangangté council" },
   hdv: { path: "/images/local/hotel-de-ville.jpg", width: 1504, author: "Commune de Bangangté", license: "droits réservés", fr: "L'hôtel de ville de Bangangté", en: "Bangangté town hall" },
   jeudi: { path: "/images/local/jeudi-propre.jpg", width: 1080, author: "Commune de Bangangté", license: "droits réservés", fr: "Jeudi propre : les habitants nettoient leur quartier avec la mairie", en: "Clean Thursday: residents clean up their neighbourhood with the town hall" },
   jeudi2: { path: "/images/local/jeudi-propre-2.jpg", width: 1080, author: "Commune de Bangangté", license: "droits réservés", fr: "Habitants mobilisés pour le Jeudi propre", en: "Residents turned out for Clean Thursday" },
@@ -93,7 +93,7 @@ export const IMG = {
   chef_bamena2: { path: "9/99/Place_Chefferie_Bamena_-_panoramio.jpg", width: 3648, author: "J. Nicolas Konda Yans", license: "CC BY 3.0", fr: "La place de la chefferie de Bamena", en: "The Bamena chiefdom square" },
   mont_batchingou: { path: "a/a1/Mont_Batchingou_%282098m%29.jpg", width: 1080, author: "SMCedric", license: "CC0", fr: "Le mont Batchingou (2 098 m)", en: "Mount Batchingou (2,098 m)" },
   rue: { path: "/images/local/rue-bangangte.jpg", width: 1672, author: "Photo de la ville", license: "droits réservés", fr: "Une avenue de Bangangté bordée de lampadaires solaires", en: "A Bangangté avenue lined with solar street lamps" },
-  ville_air: { path: "/images/local/vue-aerienne-ville.jpg", width: 387, author: "Photo de la ville", license: "droits réservés", fr: "Le centre-ville de Bangangté vu du ciel", en: "Downtown Bangangté from above" },
+  ville_air: { path: "/images/local/vue-aerienne-ville.jpg", width: 1024, author: "Photo de la ville", license: "droits réservés", fr: "Le centre-ville de Bangangté vu du ciel", en: "Downtown Bangangté from above" },
 } satisfies Record<string, ImageInfo>;
 
 export type ImgKey = keyof typeof IMG;
