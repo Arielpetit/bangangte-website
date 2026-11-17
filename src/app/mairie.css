@@ -554,3 +554,11 @@ html[data-theme="dark"] .tier-lvl { background: var(--bg-alt); }
 
 /* Les animations d entree (glissement lateral) ne doivent jamais elargir la page */
 main { overflow-x: clip; }
+
+/* ---------- En-tête : libellés sur une ligne ---------- */
+.hd-link { white-space: nowrap; }
+@media (max-width: 1280px) { .hd-link { padding: 0 .75rem; } .brand small { display: none; } }
+.search-more { margin-top: .6rem; }
+.search-more summary { cursor: pointer; padding: .6rem 1rem; border-radius: 999px; background: var(--bg-alt); color: var(--heading); font-weight: 650; width: fit-content; list-style: none; }
+.search-more summary::-webkit-details-marker { display: none; }
+.search-more[open] summary { margin-bottom: .6rem; }
