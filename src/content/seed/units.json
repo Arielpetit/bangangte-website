@@ -1,0 +1,123 @@
+[
+ {
+  "slug": "secretariat-general",
+  "name_fr": "Secrétariat général",
+  "name_en": "General secretariat",
+  "description_fr": "Coordination des services, courrier, archives et suivi des délibérations du Conseil municipal.",
+  "description_en": "Coordination of departments, mail, archives and follow-up of council decisions.",
+  "parent_id": null,
+  "head_id": "gatchou-njamen",
+  "icon": "landmark",
+  "rank": 1
+ },
+ {
+  "slug": "cabinet",
+  "name_fr": "Cabinet du Maire",
+  "name_en": "Mayor's office",
+  "description_fr": "Agenda du Maire, audiences, protocole et relations publiques.",
+  "description_en": "Mayor's agenda, audiences, protocol and public relations.",
+  "parent_id": null,
+  "head_id": null,
+  "icon": "users",
+  "rank": 2
+ },
+ {
+  "slug": "recette",
+  "name_fr": "Recette municipale",
+  "name_en": "Municipal treasury",
+  "description_fr": "Recouvrement des recettes communales et paiement des dépenses (receveur municipal).",
+  "description_en": "Collects council revenue and pays expenditure (municipal treasurer).",
+  "parent_id": null,
+  "head_id": null,
+  "icon": "store",
+  "rank": 3
+ },
+ {
+  "slug": "etat-civil",
+  "name_fr": "Centre principal d'état civil",
+  "name_en": "Main civil registry",
+  "description_fr": "Déclarations et actes de naissance, de mariage et de décès, copies et certifications. Registres en cours de digitalisation (projet RECORD).",
+  "description_en": "Birth, marriage and death records, copies and certifications. Registers being digitised (RECORD project).",
+  "parent_id": "secretariat-general",
+  "head_id": null,
+  "icon": "file",
+  "rank": 4
+ },
+ {
+  "slug": "affaires-sociales",
+  "name_fr": "Service des affaires sociales et culturelles",
+  "name_en": "Social and cultural affairs",
+  "description_fr": "Comité communal des aides et secours, appui aux personnes vulnérables, culture et associations.",
+  "description_en": "Council social assistance committee, support for vulnerable people, culture and associations.",
+  "parent_id": "secretariat-general",
+  "head_id": "hugue-capet-youmbi",
+  "icon": "users",
+  "rank": 5
+ },
+ {
+  "slug": "hygiene",
+  "name_fr": "Service d'hygiène, salubrité et environnement",
+  "name_en": "Hygiene and environment",
+  "description_fr": "Collecte des ordures avec HYSACAM, Jeudi propre, camion hydrocureur, police sanitaire et environnement.",
+  "description_en": "Waste collection with HYSACAM, Clean Thursday, septic tank truck, health inspection and environment.",
+  "parent_id": "secretariat-general",
+  "head_id": "indrick-wami-tchanaha",
+  "icon": "leaf",
+  "rank": 6
+ },
+ {
+  "slug": "urbanisme",
+  "name_fr": "Bureau urbanisme et construction",
+  "name_en": "Planning and building",
+  "description_fr": "Permis de bâtir, certificats d'urbanisme, occupation de la voie publique et suivi des chantiers.",
+  "description_en": "Building permits, planning certificates, use of public space and site supervision.",
+  "parent_id": "secretariat-general",
+  "head_id": "indrick-wami-tchanaha",
+  "icon": "build",
+  "rank": 7
+ },
+ {
+  "slug": "services-techniques",
+  "name_fr": "Services techniques",
+  "name_en": "Technical services",
+  "description_fr": "Voirie, éclairage public, ouvrages et maîtrise d'ouvrage des investissements communaux.",
+  "description_en": "Roads, street lighting, structures and project management for council investments.",
+  "parent_id": "secretariat-general",
+  "head_id": null,
+  "icon": "bolt",
+  "rank": 8
+ },
+ {
+  "slug": "emploi",
+  "name_fr": "Bureau municipal de l'emploi",
+  "name_en": "Municipal employment office",
+  "description_fr": "Accueil et orientation des jeunes, stages de vacances, programmes ORFEV Jeunes et JEME.",
+  "description_en": "Guidance for young people, holiday internships, ORFEV Jeunes and JEME programmes.",
+  "parent_id": "secretariat-general",
+  "head_id": null,
+  "icon": "ball",
+  "rank": 9
+ },
+ {
+  "slug": "communication",
+  "name_fr": "Cellule de communication (CELCOM)",
+  "name_en": "Communication unit (CELCOM)",
+  "description_fr": "Actualités de la commune, réseaux sociaux, relations avec la presse et site internet.",
+  "description_en": "Council news, social media, press relations and the website.",
+  "parent_id": "cabinet",
+  "head_id": null,
+  "icon": "radio",
+  "rank": 10
+ },
+ {
+  "slug": "marches",
+  "name_fr": "Commission interne de passation des marchés",
+  "name_en": "Internal procurement committee",
+  "description_fr": "Appels d'offres et attribution des marchés publics de la commune (publiés sur le portail de l'ARMP).",
+  "description_en": "Council tenders and contract awards (published on the ARMP portal).",
+  "parent_id": "secretariat-general",
+  "head_id": null,
+  "icon": "file",
+  "rank": 11
+ }
+]

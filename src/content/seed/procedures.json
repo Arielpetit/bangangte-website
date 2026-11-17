@@ -1,0 +1,425 @@
+[
+ {
+  "slug": "declaration-naissance",
+  "theme": "etat_civil",
+  "title_fr": "Déclarer une naissance",
+  "title_en": "Register a birth",
+  "summary_fr": "Toute naissance survenue dans la commune doit être déclarée au centre d'état civil pour établir l'acte de naissance de l'enfant.",
+  "summary_en": "Every birth in the council area must be declared at the civil registry so that the child's birth certificate can be drawn up.",
+  "documents_fr": [
+   "Certificat ou déclaration de naissance délivré par la formation sanitaire",
+   "Carte nationale d'identité du père et de la mère",
+   "Acte de mariage des parents, le cas échéant"
+  ],
+  "documents_en": [
+   "Birth notice issued by the health facility",
+   "National identity cards of the father and mother",
+   "Parents' marriage certificate, if any"
+  ],
+  "fees_fr": "Gratuit dans les délais légaux.",
+  "fees_en": "Free within the legal deadline.",
+  "delay_fr": "Déclaration dans les 90 jours qui suivent la naissance. Passé ce délai, un jugement supplétif est nécessaire.",
+  "delay_en": "Declare within 90 days of the birth. After that, a court order is needed.",
+  "where_fr": "Centre principal d'état civil, Hôtel de ville",
+  "where_en": "Main civil registry, town hall",
+  "unit_id": "etat-civil",
+  "form_url": null,
+  "rank": 1,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "copie-acte",
+  "theme": "etat_civil",
+  "title_fr": "Obtenir une copie d'acte d'état civil",
+  "title_en": "Get a copy of a civil record",
+  "summary_fr": "Copie certifiée conforme d'un acte de naissance, de mariage ou de décès établi au centre d'état civil de Bangangté.",
+  "summary_en": "Certified copy of a birth, marriage or death certificate registered in Bangangté.",
+  "documents_fr": [
+   "Références de l'acte (numéro, date, centre) ou copie de l'ancien acte",
+   "Carte nationale d'identité du demandeur"
+  ],
+  "documents_en": [
+   "Record details (number, date, registry) or an old copy",
+   "Applicant's national identity card"
+  ],
+  "fees_fr": "Renseignez-vous auprès du service.",
+  "fees_en": "Ask the department.",
+  "delay_fr": "Quelques jours selon la recherche dans les registres.",
+  "delay_en": "A few days, depending on the register search.",
+  "where_fr": "Centre principal d'état civil",
+  "where_en": "Main civil registry",
+  "unit_id": "etat-civil",
+  "form_url": null,
+  "rank": 2,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "mariage",
+  "theme": "etat_civil",
+  "title_fr": "Célébrer un mariage",
+  "title_en": "Get married",
+  "summary_fr": "Le mariage civil est célébré à l'Hôtel de ville par un officier d'état civil (le Maire ou un adjoint), après publication des bans.",
+  "summary_en": "Civil marriages are celebrated at the town hall by a civil registrar (the mayor or a deputy) after the banns are published.",
+  "documents_fr": [
+   "Actes de naissance des futurs époux",
+   "Cartes nationales d'identité des futurs époux et des témoins",
+   "Certificats médicaux prénuptiaux",
+   "Certificat de non-opposition ou de célibat",
+   "Choix du régime matrimonial (monogamie ou polygamie, biens communs ou séparés)"
+  ],
+  "documents_en": [
+   "Birth certificates of both spouses",
+   "Identity cards of the spouses and witnesses",
+   "Pre-marriage medical certificates",
+   "Certificate of no objection or of single status",
+   "Choice of marriage regime"
+  ],
+  "fees_fr": "Renseignez-vous auprès du service.",
+  "fees_en": "Ask the department.",
+  "delay_fr": "Déposez le dossier au moins un mois avant la date souhaitée pour la publication des bans.",
+  "delay_en": "File at least one month before the chosen date so the banns can be published.",
+  "where_fr": "Centre principal d'état civil, salle des actes de l'Hôtel de ville",
+  "where_en": "Main civil registry, town hall ceremony room",
+  "unit_id": "etat-civil",
+  "form_url": null,
+  "rank": 3,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "declaration-deces",
+  "theme": "etat_civil",
+  "title_fr": "Déclarer un décès",
+  "title_en": "Register a death",
+  "summary_fr": "Le décès d'une personne survenu dans la commune est déclaré au centre d'état civil par un proche ou par la formation sanitaire.",
+  "summary_en": "A death in the council area is declared at the civil registry by a relative or the health facility.",
+  "documents_fr": [
+   "Certificat médical de décès",
+   "Carte nationale d'identité du défunt",
+   "Carte nationale d'identité du déclarant"
+  ],
+  "documents_en": [
+   "Medical death certificate",
+   "Deceased's identity card",
+   "Declarant's identity card"
+  ],
+  "fees_fr": "Gratuit dans les délais légaux.",
+  "fees_en": "Free within the legal deadline.",
+  "delay_fr": "Dans les 30 jours qui suivent le décès.",
+  "delay_en": "Within 30 days of the death.",
+  "where_fr": "Centre principal d'état civil",
+  "where_en": "Main civil registry",
+  "unit_id": "etat-civil",
+  "form_url": null,
+  "rank": 4,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "legalisation",
+  "theme": "etat_civil",
+  "title_fr": "Faire certifier une copie conforme",
+  "title_en": "Certify a true copy",
+  "summary_fr": "Certification de la conformité de photocopies de documents officiels à leur original.",
+  "summary_en": "Certification that photocopies of official documents match the original.",
+  "documents_fr": [
+   "Document original",
+   "Photocopies à certifier"
+  ],
+  "documents_en": [
+   "Original document",
+   "Photocopies to certify"
+  ],
+  "fees_fr": "Renseignez-vous auprès du service.",
+  "fees_en": "Ask the department.",
+  "delay_fr": "Le jour même, en général.",
+  "delay_en": "Usually the same day.",
+  "where_fr": "Hôtel de ville",
+  "where_en": "Town hall",
+  "unit_id": "secretariat-general",
+  "form_url": null,
+  "rank": 5,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "permis-batir",
+  "theme": "urbanisme",
+  "title_fr": "Demander un permis de bâtir",
+  "title_en": "Apply for a building permit",
+  "summary_fr": "Toute construction nouvelle ou modification importante d'un bâtiment dans le périmètre communal nécessite un permis de bâtir délivré par le Maire.",
+  "summary_en": "Any new building or major alteration within the council area needs a building permit issued by the mayor.",
+  "documents_fr": [
+   "Demande timbrée adressée au Maire",
+   "Titre foncier ou acte de propriété du terrain",
+   "Plans du projet (situation, masse, façades, coupes) signés par un architecte ou un technicien agréé",
+   "Certificat d'urbanisme, le cas échéant",
+   "Carte nationale d'identité du demandeur"
+  ],
+  "documents_en": [
+   "Stamped application to the mayor",
+   "Land title or proof of ownership",
+   "Project drawings signed by a registered architect or technician",
+   "Planning certificate, if any",
+   "Applicant's identity card"
+  ],
+  "fees_fr": "Selon la surface et la nature de l'ouvrage. Renseignez-vous auprès du bureau urbanisme.",
+  "fees_en": "Depends on the size and type of building. Ask the planning office.",
+  "delay_fr": "Après instruction du dossier et visite du terrain.",
+  "delay_en": "After the file is reviewed and the site visited.",
+  "where_fr": "Bureau urbanisme et construction",
+  "where_en": "Planning and building office",
+  "unit_id": "urbanisme",
+  "form_url": null,
+  "rank": 1,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "certificat-urbanisme",
+  "theme": "urbanisme",
+  "title_fr": "Obtenir un certificat d'urbanisme",
+  "title_en": "Get a planning certificate",
+  "summary_fr": "Indique les règles d'urbanisme applicables à un terrain avant un achat ou un projet de construction.",
+  "summary_en": "Sets out the planning rules for a plot before you buy or build.",
+  "documents_fr": [
+   "Demande adressée au Maire",
+   "Plan de situation du terrain",
+   "Titre foncier ou attestation de propriété"
+  ],
+  "documents_en": [
+   "Application to the mayor",
+   "Site plan",
+   "Land title or proof of ownership"
+  ],
+  "fees_fr": "Renseignez-vous auprès du service.",
+  "fees_en": "Ask the department.",
+  "delay_fr": null,
+  "delay_en": null,
+  "where_fr": "Bureau urbanisme et construction",
+  "where_en": "Planning and building office",
+  "unit_id": "urbanisme",
+  "form_url": null,
+  "rank": 2,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "occupation-voie-publique",
+  "theme": "urbanisme",
+  "title_fr": "Occuper temporairement la voie publique",
+  "title_en": "Temporary use of public space",
+  "summary_fr": "Autorisation pour déposer des matériaux, installer un échafaudage, une tente ou un étal sur la voie publique.",
+  "summary_en": "Permission to store materials, put up scaffolding, a tent or a stall on public space.",
+  "documents_fr": [
+   "Demande adressée au Maire précisant le lieu, la surface et la durée"
+  ],
+  "documents_en": [
+   "Application to the mayor stating the place, area and duration"
+  ],
+  "fees_fr": "Renseignez-vous auprès du service.",
+  "fees_en": "Ask the department.",
+  "delay_fr": null,
+  "delay_en": null,
+  "where_fr": "Bureau urbanisme et construction",
+  "where_en": "Planning and building office",
+  "unit_id": "urbanisme",
+  "form_url": null,
+  "rank": 3,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "boutique-marche",
+  "theme": "commerce",
+  "title_fr": "Louer une boutique au marché",
+  "title_en": "Rent a market shop",
+  "summary_fr": "Les boutiques du marché central (marché A), des halls de vente et de la gare routière de Madja sont attribuées par la commune, puis font l'objet d'un contrat de bail.",
+  "summary_en": "Shops at the central market (market A), the sales halls and the Madja bus station are allocated by the council, then rented under a lease.",
+  "documents_fr": [
+   "Demande adressée au Maire",
+   "Carte nationale d'identité",
+   "Pour les attributaires : notification d'attribution, pour l'établissement du contrat de bail"
+  ],
+  "documents_en": [
+   "Application to the mayor",
+   "National identity card",
+   "For allottees: allocation notice, to draw up the lease"
+  ],
+  "fees_fr": "Loyer mensuel fixé par délibération du Conseil municipal.",
+  "fees_en": "Monthly rent set by council decision.",
+  "delay_fr": null,
+  "delay_en": null,
+  "where_fr": "Hôtel de ville, service des marchés",
+  "where_en": "Town hall, markets department",
+  "unit_id": "recette",
+  "form_url": null,
+  "rank": 1,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "place-marchande",
+  "theme": "commerce",
+  "title_fr": "Occuper une place au marché",
+  "title_en": "Trade at a market pitch",
+  "summary_fr": "Les commerçants installés sur les places et étals des marchés s'acquittent des droits de place auprès des agents de la commune.",
+  "summary_en": "Traders on market pitches and stalls pay pitch fees to council agents.",
+  "documents_fr": [
+   "Carte nationale d'identité"
+  ],
+  "documents_en": [
+   "National identity card"
+  ],
+  "fees_fr": "Droits de place selon le tarif communal.",
+  "fees_en": "Pitch fees according to the council rate.",
+  "delay_fr": null,
+  "delay_en": null,
+  "where_fr": "Marchés A et B, gare routière",
+  "where_en": "Markets A and B, bus station",
+  "unit_id": "recette",
+  "form_url": null,
+  "rank": 2,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "vidange",
+  "theme": "hygiene",
+  "title_fr": "Faire vider une fosse septique",
+  "title_en": "Empty a septic tank",
+  "summary_fr": "La commune met à disposition un camion hydrocureur pour la vidange des fosses septiques et le curage des caniveaux.",
+  "summary_en": "The council provides a septic tank truck for emptying septic tanks and clearing drains.",
+  "documents_fr": [
+   "Demande au service d'hygiène (adresse et accès du camion)"
+  ],
+  "documents_en": [
+   "Request to the hygiene department (address and truck access)"
+  ],
+  "fees_fr": "Selon le volume et la distance.",
+  "fees_en": "Depends on volume and distance.",
+  "delay_fr": "Selon le planning du camion.",
+  "delay_en": "According to the truck's schedule.",
+  "where_fr": "Service d'hygiène, salubrité et environnement",
+  "where_en": "Hygiene and environment department",
+  "unit_id": "hygiene",
+  "form_url": null,
+  "rank": 1,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "signaler-depot",
+  "theme": "hygiene",
+  "title_fr": "Signaler un dépôt d'ordures ou un problème de voirie",
+  "title_en": "Report dumped waste or a road problem",
+  "summary_fr": "Dépôt sauvage d'ordures, caniveau bouché, lampadaire en panne, nid-de-poule : signalez-le à la mairie depuis ce site.",
+  "summary_en": "Dumped waste, blocked drain, broken street light, pothole: report it to the council from this website.",
+  "documents_fr": [
+   "Lieu précis (quartier, repère)",
+   "Description du problème"
+  ],
+  "documents_en": [
+   "Exact location (quarter, landmark)",
+   "Description of the problem"
+  ],
+  "fees_fr": "Gratuit.",
+  "fees_en": "Free.",
+  "delay_fr": null,
+  "delay_en": null,
+  "where_fr": "En ligne ou à l'Hôtel de ville",
+  "where_en": "Online or at the town hall",
+  "unit_id": "hygiene",
+  "form_url": null,
+  "rank": 2,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "aide-sociale",
+  "theme": "social",
+  "title_fr": "Demander une aide sociale",
+  "title_en": "Apply for social assistance",
+  "summary_fr": "Le Comité communal des aides et secours examine les demandes d'aide médicale, scolaire et socio-économique des personnes vulnérables.",
+  "summary_en": "The council social assistance committee reviews requests for medical, school and socio-economic help from vulnerable people.",
+  "documents_fr": [
+   "Demande manuscrite adressée au Maire expliquant la situation",
+   "Carte nationale d'identité",
+   "Pièces justificatives (ordonnances, factures, certificat de scolarité, enquête sociale du centre social)"
+  ],
+  "documents_en": [
+   "Handwritten request to the mayor explaining the situation",
+   "National identity card",
+   "Supporting documents (prescriptions, bills, school certificate, social centre report)"
+  ],
+  "fees_fr": "Gratuit.",
+  "fees_en": "Free.",
+  "delay_fr": "Les dossiers sont examinés lors des sessions du comité.",
+  "delay_en": "Requests are reviewed at committee meetings.",
+  "where_fr": "Service des affaires sociales et culturelles",
+  "where_en": "Social and cultural affairs",
+  "unit_id": "affaires-sociales",
+  "form_url": null,
+  "rank": 1,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "stage-vacances",
+  "theme": "jeunesse",
+  "title_fr": "Faire un stage de vacances à la mairie",
+  "title_en": "Do a holiday internship at the council",
+  "summary_fr": "Chaque été, la mairie accueille des élèves et étudiants de la commune âgés d'au moins 15 ans pour un stage rémunéré dans ses services (programme « Vacances utiles »).",
+  "summary_en": "Every summer, the council takes students from the area aged 15 and over for a paid internship in its departments (“Vacances utiles” programme).",
+  "documents_fr": [
+   "Demande adressée au Maire",
+   "Copie de la carte d'identité ou de l'acte de naissance",
+   "Certificat de scolarité ou carte d'étudiant"
+  ],
+  "documents_en": [
+   "Application to the mayor",
+   "Copy of identity card or birth certificate",
+   "School certificate or student card"
+  ],
+  "fees_fr": "Gratuit.",
+  "fees_en": "Free.",
+  "delay_fr": "Dépôt des dossiers dès la parution du communiqué (juin).",
+  "delay_en": "Apply as soon as the notice is published (June).",
+  "where_fr": "Bureau municipal de l'emploi",
+  "where_en": "Municipal employment office",
+  "unit_id": "emploi",
+  "form_url": null,
+  "rank": 1,
+  "validated": false,
+  "status": "published"
+ },
+ {
+  "slug": "emploi-jeunes",
+  "theme": "jeunesse",
+  "title_fr": "S'inscrire au Bureau municipal de l'emploi",
+  "title_en": "Register with the employment office",
+  "summary_fr": "Accueil, orientation et mise en relation des jeunes avec les offres d'emploi, de formation et les programmes ORFEV Jeunes et JEME.",
+  "summary_en": "Guidance for young people and links to job offers, training and the ORFEV Jeunes and JEME programmes.",
+  "documents_fr": [
+   "Carte nationale d'identité",
+   "CV ou diplômes"
+  ],
+  "documents_en": [
+   "National identity card",
+   "CV or qualifications"
+  ],
+  "fees_fr": "Gratuit.",
+  "fees_en": "Free.",
+  "delay_fr": null,
+  "delay_en": null,
+  "where_fr": "Bureau municipal de l'emploi, Hôtel de ville",
+  "where_en": "Municipal employment office, town hall",
+  "unit_id": "emploi",
+  "form_url": null,
+  "rank": 2,
+  "validated": false,
+  "status": "published"
+ }
+]

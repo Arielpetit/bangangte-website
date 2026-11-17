@@ -13,6 +13,7 @@ export function Header() {
   const [open, setOpen] = useState<string | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [search, setSearch] = useState(false);
   const [pill, setPill] = useState<{ x: number; w: number; on: boolean }>({ x: 0, w: 0, on: false });
   const navRef = useRef<HTMLElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -22,13 +23,14 @@ export function Header() {
     setLastPath(pathname);
     setOpen(null);
     setDrawer(false);
+    setSearch(false);
   }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") { setOpen(null); setDrawer(false); } };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") { setOpen(null); setDrawer(false); setSearch(false); } };
     document.addEventListener("keydown", onKey);
     return () => { window.removeEventListener("scroll", onScroll); document.removeEventListener("keydown", onKey); };
   }, []);
@@ -45,8 +47,8 @@ export function Header() {
   const enter = (key: string | null) => { if (timer.current) clearTimeout(timer.current); setOpen(key); };
   const leave = () => { timer.current = setTimeout(() => setOpen(null), 180); };
 
-  const groupActive = (key: string) => GROUPS.find((g) => g.key === key)?.items.some((i) => pathname.startsWith(i.href));
-  const solid = scrolled || !!open;
+  const groupActive = (key: string) => GROUPS.find((g) => g.key === key)?.items.some((i) => { const h = i.href.split("#")[0]; return h === "/" ? pathname === "/" : pathname === h || pathname.startsWith(h + "/"); });
+  const solid = scrolled || !!open || search;
 
   return (
     <>
@@ -55,7 +57,7 @@ export function Header() {
         <div className="wrap hd-in">
           <Link className="brand" href="/">
             <span className="brand-mark" aria-hidden="true" />
-            <span><b>Bangangté</b><small><T fr="Ville du Ndé, Ouest Cameroun" en="Town of the Ndé, West Cameroon" /></small></span>
+            <span><b>Bangangté</b><small><T fr="Commune · Ndé, Ouest Cameroun" en="Council · Ndé, West Cameroon" /></small></span>
           </Link>
 
           <nav className="hd-nav" aria-label="Navigation principale" ref={navRef} onMouseLeave={() => setPill((p) => ({ ...p, on: false }))}>
@@ -94,17 +96,28 @@ export function Header() {
           </nav>
 
           <div className="hd-tools">
+            <button className="tool tool-search" type="button" aria-expanded={search} aria-controls="hd-search" aria-label="Rechercher / Search" onClick={() => { setSearch((s) => !s); setOpen(null); }}>
+              <Icon name={search ? "x" : "search"} />
+            </button>
             <button className="tool tool-lang" type="button" onClick={() => setLang()} aria-label="Changer de langue / Change language">
               <Icon name="globe" /><span data-l="fr">EN</span><span data-l="en">FR</span>
             </button>
             <button className="tool tool-theme" type="button" onClick={toggleTheme} aria-label="Changer de thème / Change theme">
               <Icon name="moon" className="icon moon" /><Icon name="sun" className="icon sun" />
             </button>
-            <Link className="btn btn-gold btn-sm hd-cta" href="/agenda#comenga">COMENGA 2026</Link>
+            <Link className="btn btn-gold btn-sm hd-cta" href="/services"><Icon name="file" /><T fr="Démarches" en="Formalities" /></Link>
             <button className="tool burger" type="button" aria-expanded={drawer} aria-controls="drawer" aria-label="Menu" onClick={() => setDrawer(true)}>
               <Icon name="menu" />
             </button>
           </div>
+        </div>
+
+        <div className={`hd-search${search ? " is-open" : ""}`} id="hd-search" aria-hidden={!search}>
+          <form className="wrap" action="/recherche" role="search">
+            <Icon name="search" />
+            <input type="search" name="q" placeholder="Rechercher / Search…" aria-label="Recherche / Search" tabIndex={search ? 0 : -1} ref={(el) => { if (el && search) el.focus(); }} />
+            <button className="btn btn-solid btn-sm" type="submit" tabIndex={search ? 0 : -1}><T fr="Rechercher" en="Search" /></button>
+          </form>
         </div>
 
         {GROUPS.map((g) => (
@@ -115,7 +128,7 @@ export function Header() {
                 <ul className="mega-links">
                   {g.items.map((it) => (
                     <li key={it.href}>
-                      <Link href={it.href} aria-current={pathname.startsWith(it.href) ? "page" : undefined}>
+                      <Link href={it.href} aria-current={pathname === it.href ? "page" : undefined}>
                         <span className="ic"><Icon name={it.icon} /></span>
                         <span><strong><T fr={it.label.fr} en={it.label.en} /></strong><span><T fr={it.desc.fr} en={it.desc.en} /></span></span>
                       </Link>
@@ -139,12 +152,16 @@ export function Header() {
           <button className="tool" type="button" aria-label="Fermer / Close" onClick={() => setDrawer(false)}><Icon name="x" /></button>
         </div>
         <nav className="drawer-body" aria-label="Menu mobile">
+          <form className="drawer-search" action="/recherche" role="search">
+            <Icon name="search" />
+            <input type="search" name="q" placeholder="Rechercher / Search…" aria-label="Recherche / Search" tabIndex={drawer ? 0 : -1} />
+          </form>
           {GROUPS.map((g, i) => (
             <details key={g.key} className="drawer-item" style={{ ["--i" as string]: i }} open={groupActive(g.key)}>
               <summary><T fr={g.label.fr} en={g.label.en} /><Icon name="chev" /></summary>
               <div>
                 {g.items.map((it) => (
-                  <Link key={it.href} href={it.href} aria-current={pathname.startsWith(it.href) ? "page" : undefined}><T fr={it.label.fr} en={it.label.en} /></Link>
+                  <Link key={it.href} href={it.href} aria-current={pathname === it.href ? "page" : undefined}><T fr={it.label.fr} en={it.label.en} /></Link>
                 ))}
               </div>
             </details>
@@ -158,7 +175,7 @@ export function Header() {
         <div className="drawer-ft">
           <button className="tool" type="button" onClick={() => setLang()}><Icon name="globe" /><span data-l="fr">English</span><span data-l="en">Français</span></button>
           <button className="tool" type="button" onClick={toggleTheme}><Icon name="moon" className="icon moon" /><Icon name="sun" className="icon sun" /><T fr="Thème" en="Theme" /></button>
-          <Link className="btn btn-gold btn-sm" href="/agenda#comenga">COMENGA 2026</Link>
+          <Link className="btn btn-gold btn-sm" href="/services"><T fr="Vos démarches" en="Formalities" /></Link>
         </div>
       </div>
     </>

@@ -1,16 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Figtree } from "next/font/google";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { Site } from "@/components/Site";
 import "./globals.css";
+import "./mairie.css";
 
 const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 const body = Figtree({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = {
-  title: { default: "Bangangté, ville du Ndé", template: "%s | Bangangté" },
-  description: "Bangangté, chef-lieu du Ndé dans l'Ouest Cameroun : histoire, personnalités, sites, culture medumba, agenda et services de la mairie.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://bangangte.skyengpro.site"),
+  title: { default: "Commune de Bangangté", template: "%s | Commune de Bangangté" },
+  description: "Site officiel de la Commune de Bangangté (Ndé, Ouest Cameroun) : actualités de la mairie, communiqués, agenda, démarches administratives, projets et découverte de la ville.",
   // Version de travail : à retirer (ou passer à true) quand le contenu est validé par la mairie.
   robots: { index: false, follow: false },
 };
@@ -26,12 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: boot }} />
       </head>
-      <body>
-        <Header />
-        <main id="contenu">{children}</main>
-        <Footer />
-        <Site />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
-// Site 100 % statique : « next build » produit le dossier out/, servi par Cloudflare Workers (static assets).
+// Next.js exécuté sur Cloudflare Workers via OpenNext (voir open-next.config.ts et wrangler.jsonc).
 const nextConfig: NextConfig = {
-  output: "export",
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
+
+initOpenNextCloudflareForDev();
