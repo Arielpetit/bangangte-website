@@ -1,4 +1,3 @@
-import type React from "react";
 import Link from "next/link";
 import { Icon, Img, SecHead, T } from "@/components/ui";
 import { CHEFFERIES } from "@/lib/chefferies";
@@ -60,13 +59,13 @@ export default function Chefferies() {
             {/* Niveau 2 */}
             <div className="trad-tier" style={{ width: "100%" }}>
               <div className="trad-tier-label"><span><T fr="2e degré" en="2nd degree" /></span></div>
-              <div className="trad-row" style={{ "--cols": "3" } as React.CSSProperties} data-stagger>
+              <div className="trad-row" data-stagger>
                 {CHEFFERIES.filter((c) => c.degree === 2).map((c) => (
                   <div key={c.slug} className="trad-node">
                     <div className="pi"><Icon name="landmark" /></div>
                     <div>
                       <strong>{c.king}</strong>
-                      <small><T fr={`Roi de ${c.name} · depuis ${c.since}`} en={`King of ${c.name} · since ${c.since}`} /></small>
+                      <small><T fr={`Roi de ${c.name}${c.since ? ` · depuis ${c.since}` : ""}`} en={`King of ${c.name}${c.since ? ` · since ${c.since}` : ""}`} /></small>
                     </div>
                   </div>
                 ))}

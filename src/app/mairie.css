@@ -459,7 +459,7 @@ html[data-theme="dark"] .qfq-bg .icon { color: var(--gold-soft); opacity: .1; }
 .trad-vbar { width: 2px; height: 32px; background: linear-gradient(var(--gold), color-mix(in srgb, var(--gold) 25%, transparent)); }
 .trad-tier-label { display: flex; align-items: center; gap: .5rem; margin-bottom: 1rem; }
 .trad-tier-label span { font: 700 .8rem var(--font-body), system-ui; letter-spacing: .06em; text-transform: uppercase; color: var(--kicker); }
-.trad-row { display: grid; grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr)); gap: .9rem; width: 100%; position: relative; padding-top: 32px; }
+.trad-row { --cols: 3; display: grid; grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr)); gap: .9rem; width: 100%; position: relative; padding-top: 32px; }
 .trad-row::before { content: ""; position: absolute; top: 0; left: 10%; right: 10%; height: 2px; background: color-mix(in srgb, var(--gold) 50%, transparent); }
 .trad-row > * { position: relative; }
 .trad-row > *::before { content: ""; position: absolute; top: -32px; left: calc(50% - 1px); width: 2px; height: 32px; background: color-mix(in srgb, var(--gold) 50%, transparent); }
@@ -521,3 +521,36 @@ html[data-theme="dark"] .tier-lvl { background: var(--bg-alt); }
 /* ---------- Rangs : carte seule centrée, 6 cartes sur 3 colonnes ---------- */
 .patriarche-feat .pgrid { grid-template-columns: minmax(0, 320px); justify-content: center; }
 @media (min-width: 1001px) { .tier.cols3 .pgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* ---------- Recherche ---------- */
+.hd-search { display: none; background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 24px 40px -30px rgb(var(--shadow) / .6); }
+.hd-search.is-open { display: block; }
+.hd-search form { display: flex; align-items: center; gap: .7rem; padding-block: .8rem; }
+.hd-search .icon, .search-form .icon, .drawer-search .icon { width: 20px; height: 20px; flex: none; color: var(--muted); }
+.hd-search input, .search-form input, .drawer-search input { flex: 1; min-width: 0; height: 46px; padding: 0 1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font: 500 1rem var(--font-body), system-ui, sans-serif; }
+.hd-search input:focus, .search-form input:focus, .drawer-search input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+.drawer-search { display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem; }
+.search-title { margin: .2rem 0 1.4rem; font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.search-form { display: flex; align-items: center; gap: .7rem; max-width: 720px; padding: .5rem .5rem .5rem 1.1rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
+.search-form input { border: 0; background: none; height: 44px; padding: 0 .2rem; }
+.search-form input:focus { outline: 0; }
+.search-form:focus-within { border-color: var(--gold); }
+.search-tips { margin-top: 1.4rem; }
+.search-tips .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+.search-tips .chips a { padding: .45rem 1rem; border-radius: 999px; background: var(--bg-alt); color: var(--heading); text-decoration: none; font-weight: 650; font-size: .9rem; }
+.search-tips .chips a:hover { background: var(--gold); color: var(--indigo-deep); }
+.search-count, .search-empty { margin: 1.6rem 0 0; }
+.search-group { margin-top: 2.2rem; }
+.search-group h2 { display: flex; align-items: center; gap: .6rem; margin: 0 0 .8rem; font-size: 1.15rem; }
+.search-group h2 span { padding: .1rem .6rem; border-radius: 999px; background: var(--bg-alt); color: var(--muted); font: 700 .78rem var(--font-body), system-ui, sans-serif; }
+.search-hits { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.search-hits a { display: grid; grid-template-columns: 42px 1fr; gap: .9rem; align-items: start; padding: .85rem 1rem; border-radius: var(--r-m); background: var(--surface); border: 1px solid var(--line); color: var(--text); text-decoration: none; transition: border-color .25s, transform .35s var(--ease); }
+.search-hits a:hover { border-color: var(--gold); transform: translateX(4px); }
+.search-hits .ic { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: var(--bg-alt); color: var(--kicker); }
+.search-hits .ic .icon { width: 20px; height: 20px; }
+.search-hits strong { display: block; color: var(--heading); }
+.search-hits small { display: block; margin-top: .15rem; color: var(--muted); font-size: .88rem; line-height: 1.45; overflow-wrap: anywhere; }
+@media (max-width: 560px) { .hd-search .btn { display: none; } .search-form .btn { padding-inline: 1rem; } }
+
+/* Les animations d entree (glissement lateral) ne doivent jamais elargir la page */
+main { overflow-x: clip; }
