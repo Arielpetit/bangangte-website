@@ -27,8 +27,6 @@ const EARLIER: [string, string][] = [
 ];
 
 const MAYORS: Person[] = [
-  { slug: "marcel-niat-njifenji", name: "Marcel Niat Njifenji", initials: "MN", img: "niat", role: { fr: "2002 – 2007", en: "2002 – 2007" }, text: { fr: "Ingénieur, devenu le premier président du Sénat du Cameroun.", en: "An engineer who became the first President of the Senate of Cameroon." } },
-  { slug: "celestine-ketcha-courtes", name: "Célestine Ketcha Courtès", initials: "CK", img: "ketcha", role: { fr: "2007 – 2019", en: "2007 – 2019" }, text: { fr: "Puis ministre de l'Habitat et du Développement urbain.", en: "Then Minister of Housing and Urban Development." } },
   { slug: "jonas-kouamouo", name: "Jonas Kouamouo", initials: "JK", role: { fr: "2019 – 2021", en: "2019 – 2021" }, text: { fr: "Pharmacien et enseignant à l'Université des Montagnes.", en: "Pharmacist and lecturer at the Université des Montagnes." } },
   { slug: "eric-niat", name: "Éric Niat", initials: "ÉN", role: { fr: "Depuis mai 2021", en: "Since May 2021" }, text: { fr: "Fils de Marcel Niat Njifenji, il a inauguré le nouvel hôtel de ville en 2022.", en: "Son of Marcel Niat Njifenji, he opened the new town hall in 2022." } },
 ];
