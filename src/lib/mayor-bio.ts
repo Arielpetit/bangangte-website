@@ -1,6 +1,6 @@
 import type { Bi } from "./nav";
 
-export type BioSection = { id: string; title?: Bi; paragraphs: Bi[] };
+export type BioSection = { id: string; title?: Bi; paragraphs: Bi[]; timeline?: { y: Bi; t: Bi }[] };
 
 const P = (fr: string, en: string): Bi => ({ fr, en });
 
@@ -90,6 +90,20 @@ export const MAYOR_BIO: BioSection[] = [
         "En mai 2023, Éric Aimé NIAT est élevé au grade d'Officier de l'Ordre de la Valeur camerounais.",
         "In May 2023, Éric Aimé NIAT was made an Officer of the Cameroonian Order of Valour.",
       ),
+    ],
+  },
+  {
+    id: "dates",
+    title: P("Les grandes dates", "Key dates"),
+    paragraphs: [],
+    timeline: [
+      { y: P("2013", "2013"), t: P("Élu conseiller municipal, 4e adjoint au Maire", "Elected councillor, 4th deputy mayor") },
+      { y: P("2019", "2019"), t: P("3e adjoint au Maire", "3rd deputy mayor") },
+      { y: P("2020", "2020"), t: P("Réélu conseiller municipal", "Re-elected councillor") },
+      { y: P("2021", "2021"), t: P("Élu Maire le 19 mai, prête serment le 3 juin, installé avec ses adjoints le 31 juillet", "Elected mayor on 19 May, sworn in on 3 June, installed with his deputies on 31 July") },
+      { y: P("Mai 2023", "May 2023"), t: P("Officier de l'Ordre de la Valeur camerounais", "Officer of the Cameroonian Order of Valour") },
+      { y: P("Juin 2023", "June 2023"), t: P("Élu président de la Zone IV Afrique de la FIBA, à Maputo", "Elected president of FIBA Africa Zone IV, in Maputo") },
+      { y: P("Oct. 2026", "Oct. 2026"), t: P("Ambassadeur Youth Connekt Cameroon pour la région de l'Ouest", "Youth Connekt Cameroon ambassador for the West Region") },
     ],
   },
   {

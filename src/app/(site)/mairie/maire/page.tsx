@@ -10,14 +10,6 @@ import { Hero } from "@/components/Hero";
 export const dynamic = "force-dynamic";
 export const metadata = meta("Le Maire", "The mayor", "Éric Aimé NIAT, Maire de Bangangté depuis 2021 : parcours, mandat et action municipale.");
 
-const STEPS = [
-  { y: "2013", fr: "Élu conseiller municipal, 4e adjoint au Maire", en: "Elected councillor, 4th deputy mayor" },
-  { y: "2019", fr: "3e adjoint au Maire", en: "3rd deputy mayor" },
-  { y: "2020", fr: "Réélu conseiller municipal", en: "Re-elected councillor" },
-  { y: "2021", fr: "Élu Maire le 19 mai, prête serment le 3 juin, installé avec ses adjoints le 31 juillet", en: "Elected mayor on 19 May, sworn in on 3 June, installed with his deputies on 31 July" },
-  { y: "2026", fr: "Ambassadeur Youth Connekt Cameroon pour la région de l'Ouest", en: "Youth Connekt Cameroon ambassador for the West Region" },
-];
-
 const PRIORITIES = [
   { icon: "leaf", fr: "Une ville propre", en: "A clean town", dfr: "Jeudi propre chaque semaine, réceptacles à ordures, partenariat avec HYSACAM et camion hydrocureur.", den: "Clean Thursday every week, waste points, partnership with HYSACAM and a septic tank truck." },
   { icon: "drop", fr: "L'eau et la lumière", en: "Water and light", dfr: "« Bangangté, ville fontaine » et éclairage public solaire dans les quartiers et les villages.", den: "“Bangangté, fountain city” and solar street lighting in neighbourhoods and villages." },
@@ -43,47 +35,40 @@ export default async function Maire() {
         badge={{ big: "2021", small: { fr: "Élu Maire", en: "Elected mayor" } }}
       />
 
-      <section className="sec">
-        <div className="wrap mayor">
-          <div className="mayor-portrait" data-reveal="left">
-            <div className="frame pcard-img">
+      <section className="sec" id="biographie">
+        <div className="wrap bio">
+          <aside className="bio-aside">
+            <figure className="bio-portrait" data-reveal="left">
               {photo ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={photo} alt={mayor?.name} />
               ) : (
                 <span className="pcard-ini" aria-hidden="true">{initials(mayor?.name ?? "E N")}</span>
               )}
-            </div>
-          </div>
-          <div>
-            <p className="kicker" data-reveal>{settings.mayor_message_fr ? <T fr="Le mot du Maire" en="A word from the mayor" /> : <T fr="Parcours" en="Career" />}</p>
-            {settings.mayor_message_fr && <p className="quote" data-reveal><B fr={settings.mayor_message_fr} en={settings.mayor_message_en} /></p>}
-            <h2 data-reveal>{mayor?.name}</h2>
-            <p className="lead" data-reveal><B fr={mayor?.bio_fr} en={mayor?.bio_en} /></p>
-            <ul className="timeline" data-stagger>
-              {STEPS.map((s) => <li key={s.y}><b>{s.y}</b><span><T fr={s.fr} en={s.en} /></span></li>)}
-            </ul>
-            <a className="link-arrow" data-reveal href="#biographie"><T fr="Lire la biographie complète" en="Read the full biography" /><Icon name="arrow" /></a>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec sec-alt" id="biographie">
-        <div className="wrap">
-          <SecHead kicker={{ fr: "Biographie", en: "Biography" }} title={{ fr: "Éric Aimé NIAT : parcours complet", en: "Éric Aimé NIAT: the full story" }} />
-          <div className="bio">
-            <nav className="bio-nav" aria-label="Plan de la biographie" data-reveal>
+              <figcaption><b>{mayor?.name ?? "Éric Aimé NIAT"}</b><span><T fr="Maire de Bangangté depuis le 19 mai 2021" en="Mayor of Bangangté since 19 May 2021" /></span></figcaption>
+            </figure>
+            <nav className="bio-nav" aria-label="Plan de la biographie">
               {MAYOR_BIO.filter((s) => s.title).map((s) => <a key={s.id} href={`#bio-${s.id}`}><T fr={s.title!.fr} en={s.title!.en} /></a>)}
             </nav>
-            <article className="bio-text">
-              {MAYOR_BIO.map((s) => (
-                <section key={s.id} id={`bio-${s.id}`} data-reveal>
-                  {s.title && <h3><T fr={s.title.fr} en={s.title.en} /></h3>}
-                  {s.paragraphs.map((p) => <p key={p.fr} className={s.id === "presentation" ? "lead" : undefined}><T fr={p.fr} en={p.en} /></p>)}
-                </section>
-              ))}
-            </article>
-          </div>
+          </aside>
+          <article className="bio-text">
+            <header>
+              <p className="kicker" data-reveal><T fr="Biographie" en="Biography" /></p>
+              <h2 data-reveal>{mayor?.name ?? "Éric Aimé NIAT"}</h2>
+              {settings.mayor_message_fr && <p className="quote" data-reveal><B fr={settings.mayor_message_fr} en={settings.mayor_message_en} /></p>}
+            </header>
+            {MAYOR_BIO.map((s) => (
+              <section key={s.id} id={`bio-${s.id}`} data-reveal>
+                {s.title && <h3><T fr={s.title.fr} en={s.title.en} /></h3>}
+                {s.paragraphs.map((p) => <p key={p.fr} className={s.id === "presentation" ? "lead" : undefined}><T fr={p.fr} en={p.en} /></p>)}
+                {s.timeline && (
+                  <ul className="timeline">
+                    {s.timeline.map((x) => <li key={x.t.fr}><b><T fr={x.y.fr} en={x.y.en} /></b><span><T fr={x.t.fr} en={x.t.en} /></span></li>)}
+                  </ul>
+                )}
+              </section>
+            ))}
+          </article>
         </div>
       </section>
 
