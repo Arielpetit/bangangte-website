@@ -14,8 +14,7 @@ const HERO_PAGES: { k: string; label: string }[] = [
   { k: "galerie", label: "Galerie" }, { k: "projets", label: "Projets" }, { k: "services", label: "Services et démarches" },
   { k: "services/signaler", label: "Signaler un problème" }, { k: "contact", label: "Contact" },
   { k: "mairie", label: "La Mairie" }, { k: "mairie/maire", label: "Le Maire" }, { k: "mairie/executif", label: "L'exécutif" },
-  { k: "mairie/conseil", label: "Conseil municipal" }, { k: "mairie/administration", label: "Administration" }, { k: "mairie/historique", label: "Historique" }, { k: "chefferies", label: "Chefferies" }, { k: "activites", label: "Activités communales" },
-  { k: "ville", label: "Découvrir : la ville" }, { k: "histoire", label: "Découvrir : histoire" }, { k: "personnalites", label: "Découvrir : personnalités" },
+  { k: "mairie/conseil", label: "Conseil municipal" }, { k: "mairie/administration", label: "Administration" }, { k: "mairie/historique", label: "Historique" }, { k: "chefferies", label: "Chefferies" }, { k: "ville", label: "Découvrir : la ville" }, { k: "histoire", label: "Découvrir : histoire" }, { k: "personnalites", label: "Découvrir : personnalités" },
   { k: "nature", label: "Découvrir : nature" }, { k: "culture", label: "Découvrir : culture" }, { k: "sejourner", label: "Découvrir : séjourner" },
 ];
 

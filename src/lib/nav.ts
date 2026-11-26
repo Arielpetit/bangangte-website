@@ -31,8 +31,7 @@ export const GROUPS: NavGroup[] = [
     label: { fr: "Informations", en: "News" },
     intro: { fr: "Ce qui se passe à la mairie et dans la commune", en: "What is happening at the council and in town" },
     items: [
-      { href: "/actualites", icon: "news", label: { fr: "Actualités", en: "News" }, desc: { fr: "La vie de la commune, chaque semaine", en: "Council life, week by week" } },
-      { href: "/activites", icon: "layers", label: { fr: "Activités communales", en: "Council activities" }, desc: { fr: "Plus de dix ans d'action, année par année", en: "Over ten years of action, year by year" } },
+      { href: "/actualites", icon: "news", label: { fr: "Actualités", en: "News" }, desc: { fr: "L'action de la commune, par thème et par année", en: "Council action, by theme and by year" } },
       { href: "/communiques", icon: "megaphone", label: { fr: "Communiqués et avis", en: "Notices" }, desc: { fr: "Annonces officielles, appels, alertes", en: "Official notices, calls, alerts" } },
       { href: "/agenda", icon: "calendar", label: { fr: "Agenda", en: "Events" }, desc: { fr: "Jeudi propre, conseils, fêtes et festivals", en: "Clean Thursday, sessions, celebrations" } },
       { href: "/galerie", icon: "image", label: { fr: "Photothèque", en: "Photo library" }, desc: { fr: "Les images de Bangangté", en: "Images of Bangangté" } },
