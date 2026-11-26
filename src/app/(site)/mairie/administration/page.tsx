@@ -9,27 +9,50 @@ import { Hero } from "@/components/Hero";
 export const dynamic = "force-dynamic";
 export const metadata = meta("L'administration communale", "Council administration", "Organigramme de la Mairie de Bangangté : secrétariat général, état civil, affaires sociales, hygiène, urbanisme, emploi et communication.");
 
-function Node({ u, head, top }: { u: Unit; head?: Person; top?: boolean }) {
-  return (
-    <div className={`org-node${top ? " top" : ""}`} data-reveal>
-      <div className="pi"><Icon name={u.icon} /></div>
-      <div>
-        <strong><B fr={u.name_fr} en={u.name_en} /></strong>
-        <small><B fr={u.description_fr} en={u.description_en} /></small>
-        {head && <span className="org-head"><Icon name="users" />{head.name}</span>}
-      </div>
-    </div>
-  );
+function Head({ p }: { p?: Person }) {
+  return p ? <span className="org-head"><Icon name="users" />{p.name}</span> : null;
 }
 
 export default async function Administration() {
   const [units, people, executive] = await Promise.all([getUnits(), getPeople("administration"), getPeople("executif")]);
   const headOf = (u: Unit) => people.find((p) => p.id === u.head_id) ?? executive.find((p) => p.id === u.head_id);
+  const under = (id: string) => units.filter((u) => u.parent_id === id);
   const roots = units.filter((u) => !u.parent_id);
   const sg = roots.find((u) => u.slug === "secretariat-general") ?? roots[0];
-  const otherRoots = roots.filter((u) => u.id !== sg?.id);
-  const under = (id: string) => units.filter((u) => u.parent_id === id);
+  const attached = roots.filter((u) => u.id !== sg?.id);
+  const sgKids = sg ? under(sg.id) : [];
+  const services = sgKids.filter((u) => under(u.id).length > 0);
+  const staff = sgKids.filter((u) => under(u.id).length === 0);
   const mayor = executive[0];
+
+  const Subs = ({ id }: { id: string }) => {
+    const kids = under(id);
+    if (!kids.length) return null;
+    return (
+      <ul className="org-subs">
+        {kids.map((k) => (
+          <li key={k.id}>
+            <span><B fr={k.name_fr} en={k.name_en} /></span>
+            <Head p={headOf(k)} />
+            <Subs id={k.id} />
+          </li>
+        ))}
+      </ul>
+    );
+  };
+  const Unit = ({ u }: { u: Unit }) => (
+    <article className="org-unit" id={u.slug} data-reveal>
+      <header>
+        <div className="pi"><Icon name={u.icon} /></div>
+        <div>
+          <h3><B fr={u.name_fr} en={u.name_en} /></h3>
+          <Head p={headOf(u)} />
+        </div>
+      </header>
+      <Subs id={u.id} />
+    </article>
+  );
+
   return (
     <>
       <Hero page="mairie/administration"
@@ -39,30 +62,37 @@ export default async function Administration() {
         lead={{ fr: "Sous l'autorité du Maire, le Secrétariat général coordonne les services qui accueillent les usagers au quotidien.", en: "Under the mayor's authority, the general secretariat coordinates the departments that serve residents every day." }}
         img="hdv"
         landscape
-        badge={{ big: String(units.length), small: { fr: "services et bureaux", en: "departments" } }}
+        badge={{ big: String(units.length), small: { fr: "services et bureaux", en: "departments and offices" } }}
       />
       <section className="sec">
         <div className="wrap">
-          <SecHead kicker={{ fr: "Organigramme", en: "Org chart" }} title={{ fr: "Comment la mairie est organisée", en: "How the council is organised" }} text={{ fr: "Organigramme simplifié, établi à partir des communications officielles de la mairie.", en: "Simplified chart, based on the council's official communications." }} />
-          <div className="org">
-            {mayor && (
-              <div className="org-node top" data-reveal>
-                <div className="pi"><Icon name="shield" /></div>
-                <div><strong><T fr="Le Maire et l'exécutif" en="The mayor and executive" /></strong><small>{mayor.name}</small></div>
-              </div>
-            )}
+          <SecHead kicker={{ fr: "Organigramme", en: "Org chart" }} title={{ fr: "Comment la mairie est organisée", en: "How the council is organised" }} text={{ fr: "D'après l'organigramme officiel de la commune, adopté par délibération municipale (révision du 19 mai 2014, complétée par une annexe). Les noms des responsables s'affichent à mesure qu'ils sont confirmés.", en: "Based on the council's official org chart, adopted by municipal deliberation (revised on 19 May 2014 and completed by an annex). Names of heads appear as they are confirmed." }} />
+          <div className="org org-full">
+            <Link className="org-node top" href="/mairie/conseil" data-reveal>
+              <div className="pi"><Icon name="layers" /></div>
+              <div><strong><T fr="Le Conseil municipal" en="The municipal council" /></strong><small><T fr="41 conseillers, des commissions et des sessions" en="41 councillors, committees and sessions" /></small></div>
+            </Link>
             <div className="org-line" />
-            <div className="org-row">{otherRoots.map((u) => <Node key={u.id} u={u} head={headOf(u)} />)}</div>
+            <Link className="org-node top" href="/mairie/executif" data-reveal>
+              <div className="pi"><Icon name="shield" /></div>
+              <div><strong><T fr="Le Maire et ses adjoints" en="The mayor and deputies" /></strong>{mayor && <small>{mayor.name}</small>}</div>
+            </Link>
             <div className="org-line" />
-            {sg && <Node u={sg} head={headOf(sg)} top />}
+            <div className="org-cols">
+              {attached.map((u) => <Unit key={u.id} u={u} />)}
+            </div>
+            <div className="org-line" />
             {sg && (
-              <div className="org-children">
-                {under(sg.id).map((u) => <Node key={u.id} u={u} head={headOf(u)} />)}
+              <div className="org-node top" id={sg.slug} data-reveal>
+                <div className="pi"><Icon name={sg.icon} /></div>
+                <div><strong><B fr={sg.name_fr} en={sg.name_en} /></strong><small><B fr={sg.description_fr} en={sg.description_en} /></small><Head p={headOf(sg)} /></div>
               </div>
             )}
-            {otherRoots.flatMap((r) => under(r.id)).length > 0 && (
-              <div className="org-children">{otherRoots.flatMap((r) => under(r.id)).map((u) => <Node key={u.id} u={u} head={headOf(u)} />)}</div>
-            )}
+            {staff.length > 0 && <div className="org-staff">{staff.map((u) => <Unit key={u.id} u={u} />)}</div>}
+            <div className="org-line" />
+            <div className="org-cols">
+              {services.map((u) => <Unit key={u.id} u={u} />)}
+            </div>
           </div>
         </div>
       </section>

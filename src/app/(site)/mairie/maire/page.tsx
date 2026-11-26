@@ -4,6 +4,7 @@ import { Icon, SecHead, T } from "@/components/ui";
 import { getPeople, getPosts, getSettings } from "@/lib/data/content";
 import { initials, mediaUrl } from "@/lib/data/format";
 import { meta } from "@/lib/meta";
+import { MAYOR_BIO } from "@/lib/mayor-bio";
 import { Hero } from "@/components/Hero";
 
 export const dynamic = "force-dynamic";
@@ -62,11 +63,31 @@ export default async function Maire() {
             <ul className="timeline" data-stagger>
               {STEPS.map((s) => <li key={s.y}><b>{s.y}</b><span><T fr={s.fr} en={s.en} /></span></li>)}
             </ul>
+            <a className="link-arrow" data-reveal href="#biographie"><T fr="Lire la biographie complète" en="Read the full biography" /><Icon name="arrow" /></a>
           </div>
         </div>
       </section>
 
-      <section className="sec sec-alt">
+      <section className="sec sec-alt" id="biographie">
+        <div className="wrap">
+          <SecHead kicker={{ fr: "Biographie", en: "Biography" }} title={{ fr: "Éric Aimé NIAT : parcours complet", en: "Éric Aimé NIAT: the full story" }} />
+          <div className="bio">
+            <nav className="bio-nav" aria-label="Plan de la biographie" data-reveal>
+              {MAYOR_BIO.filter((s) => s.title).map((s) => <a key={s.id} href={`#bio-${s.id}`}><T fr={s.title!.fr} en={s.title!.en} /></a>)}
+            </nav>
+            <article className="bio-text">
+              {MAYOR_BIO.map((s) => (
+                <section key={s.id} id={`bio-${s.id}`} data-reveal>
+                  {s.title && <h3><T fr={s.title.fr} en={s.title.en} /></h3>}
+                  {s.paragraphs.map((p) => <p key={p.fr} className={s.id === "presentation" ? "lead" : undefined}><T fr={p.fr} en={p.en} /></p>)}
+                </section>
+              ))}
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec">
         <div className="wrap">
           <SecHead kicker={{ fr: "L'action municipale", en: "Council action" }} title={{ fr: "Six priorités pour Bangangté", en: "Six priorities for Bangangté" }} text={{ fr: "Les axes qui reviennent dans l'action de la mairie depuis 2021.", en: "The themes that run through the council's work since 2021." }} />
           <div className="g3" data-stagger>
